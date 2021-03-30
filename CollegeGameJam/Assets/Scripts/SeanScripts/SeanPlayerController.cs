@@ -21,6 +21,8 @@ public class SeanPlayerController : MonoBehaviour
     {
         playerActionMap = new PlayerActionMap();    // Creation of new PlayerActionMap C# Script that will be used for all called events
         rb = GetComponent<Rigidbody>();             // Reference to RigidBody
+
+        playerActionMap.Default.Jump.started += ctx => Jump();
     }
 
     // Start is called before the first frame update
@@ -79,6 +81,21 @@ public class SeanPlayerController : MonoBehaviour
 
         Vector3 inputVectorCam = (cameraLocationForward * inputVector.z + cameraLocationRight * inputVector.x);
         return inputVectorCam;
+    }
+
+    public void Jump()
+    {
+        Debug.Log("You jumped");
+    }
+
+    private void OnEnable()
+    {
+        playerActionMap.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerActionMap.Disable();
     }
 
 
