@@ -1,0 +1,33 @@
+{
+    "name": "StageCamera",
+    "maps": [
+        {
+            "name": "StageCamera",
+            "id": "b0d8dc55-2860-4056-8313-180ccf7e3efc",
+            "actions": [
+                {
+                    "name": "MouseLook",
+                    "type": "PassThrough",
+                    "id": "7d3a9c5e-9b02-4479-bd76-be5cf2f2b0f3",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "99d889fb-9906-4780-9663-e3c920eb42c4",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseLook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
