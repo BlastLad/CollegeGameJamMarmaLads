@@ -17,7 +17,7 @@ public class SeanPlayerController : MonoBehaviour
     public LayerMask groundLayers;                  //detection for ground layers
     [SerializeField]
     private float jumpForce = 7f;                   //jump force of the player
-    public SphereCollider col;                      //sphere collider for ground detection
+    public CapsuleCollider col;                      //sphere collider for ground detection
 
 
     [Tooltip("ATTACH the Main Camera object from the scene")]
@@ -26,7 +26,7 @@ public class SeanPlayerController : MonoBehaviour
     {
         playerActionMap = new PlayerActionMap();    // Creation of new PlayerActionMap C# Script that will be used for all called events
         rb = GetComponent<Rigidbody>();             // Reference to RigidBody
-        col = GetComponent<SphereCollider>();       // Reference to the sphere collider for ground detection
+        col = GetComponent<CapsuleCollider>();       // Reference to the sphere collider for ground detection
 
         playerActionMap.Default.Jump.started += ctx => Jump();
     }
