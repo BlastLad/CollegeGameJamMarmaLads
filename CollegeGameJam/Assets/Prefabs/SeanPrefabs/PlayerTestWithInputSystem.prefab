@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 57000189650001253}
   - component: {fileID: 57000189650001250}
   - component: {fileID: 57000189650001251}
+  - component: {fileID: 9051880098822419972}
   m_Layer: 0
   m_Name: PlayerTestWithInputSystem
   m_TagString: Untagged
@@ -296,3 +297,15 @@ MonoBehaviour:
   m_DefaultActionMap: Default
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &9051880098822419972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57000189650001248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1afa3d08169deca409cd01d5b983e67f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
