@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/RossScenes/RossLevel1.unity
+    guid: 94e7b0ae2b89d42ff9c9878792a6f386
+  - enabled: 1
+    path: Assets/Scenes/RossScenes/RossLevel2.unity
+    guid: 330cb570d9e32461d946fc7808c403f1
   m_configObjects: {}
