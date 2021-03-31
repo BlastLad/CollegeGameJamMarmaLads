@@ -119,4 +119,10 @@ public class SeanPlayerController : MonoBehaviour
 
     private Vector3 RotationDirection =>
         Vector3.RotateTowards(transform.forward, Direction, turnSpeed * Time.deltaTime, 0);
+
+
+    public PlayerActionMap GetPlayerActionMap()
+    {
+        return playerActionMap;
+    }
 }

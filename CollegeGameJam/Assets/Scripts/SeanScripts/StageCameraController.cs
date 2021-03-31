@@ -2,32 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class StageCameraController : MonoBehaviour
 {
     //A Script for the controlling of the camera in all Diorama Scenes
 
 
+    PlayerActionMap playerActionMap;
+
+
     [SerializeField]
-    private float runSpeed = 0;
+    InputActionReference controllerActionMap;
     [SerializeField]
-    private float turnSpeed = 0;
-    CameraActionMap cameraActionMap;
-    public Vector3 currentPosition;
-    public Transform cameraLocation;
-    private Vector3 inputVector = new Vector3(0, 0);
-    private Rigidbody rb;
+    InputActionReference mouseActionMap;
+
+    [SerializeField]
+    CinemachineInputProvider cineMachineInputProvider;
+    
+  
 
 
     private void Awake()
     {
-        cameraActionMap = new CameraActionMap();
-        rb = GetComponent<Rigidbody>();
+        
+
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerActionMap = gameObject.GetComponent<SeanPlayerController>().GetPlayerActionMap();
+
+        playerActionMap.Default.MouseButtonActivate.started += ctx => ActivateMouseCameraControl();
+        playerActionMap.Default.MouseButtonActivate.canceled += ctx => DisableMouseCameraControl();
     }
 
     // Update is called once per frame
@@ -41,24 +48,16 @@ public class StageCameraController : MonoBehaviour
         
     }
 
-    private Vector3 Direction { get; set; }
-    public void OnMovement(InputAction.CallbackContext context)
+
+    private void ActivateMouseCameraControl()
     {
-
-        inputVector.x = context.ReadValue<Vector2>().x;
-        inputVector.z = context.ReadValue<Vector2>().y;
-
-        Vector3 cameraLocationForward = cameraLocation.forward;
-        Vector3 cameraLocationRight = cameraLocation.right;
-
-        cameraLocationForward.y = 0;
-        cameraLocationRight.y = 0;
-
-        cameraLocationForward = cameraLocationForward.normalized;
-        cameraLocationRight = cameraLocationRight.normalized;
-
-
-        //Direction = new Vector3(inputVector.x, 0, inputVector.z);
-        Direction = (cameraLocationForward * inputVector.z + cameraLocationRight * inputVector.x);
+        cineMachineInputProvider.XYAxis = mouseActionMap;
     }
+
+    private void DisableMouseCameraControl()
+    {
+        cineMachineInputProvider.XYAxis = controllerActionMap;
+    }
+
+   
 }

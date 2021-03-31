@@ -33,6 +33,14 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""MouseButtonActivate"",
+                    ""type"": ""Button"",
+                    ""id"": ""6bdf0abd-6932-4436-8074-366b010e346b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -233,6 +241,28 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0f8e57aa-bcbc-48c8-8f3c-eb806239c616"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseButtonActivate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aca8997e-cef2-4cbe-9a3c-48724fb5d825"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseButtonActivate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -243,6 +273,7 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
         m_Default = asset.FindActionMap("Default", throwIfNotFound: true);
         m_Default_Movement = m_Default.FindAction("Movement", throwIfNotFound: true);
         m_Default_Jump = m_Default.FindAction("Jump", throwIfNotFound: true);
+        m_Default_MouseButtonActivate = m_Default.FindAction("MouseButtonActivate", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -294,12 +325,14 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
     private IDefaultActions m_DefaultActionsCallbackInterface;
     private readonly InputAction m_Default_Movement;
     private readonly InputAction m_Default_Jump;
+    private readonly InputAction m_Default_MouseButtonActivate;
     public struct DefaultActions
     {
         private @PlayerActionMap m_Wrapper;
         public DefaultActions(@PlayerActionMap wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Default_Movement;
         public InputAction @Jump => m_Wrapper.m_Default_Jump;
+        public InputAction @MouseButtonActivate => m_Wrapper.m_Default_MouseButtonActivate;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -315,6 +348,9 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJump;
+                @MouseButtonActivate.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnMouseButtonActivate;
+                @MouseButtonActivate.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnMouseButtonActivate;
+                @MouseButtonActivate.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnMouseButtonActivate;
             }
             m_Wrapper.m_DefaultActionsCallbackInterface = instance;
             if (instance != null)
@@ -325,6 +361,9 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @MouseButtonActivate.started += instance.OnMouseButtonActivate;
+                @MouseButtonActivate.performed += instance.OnMouseButtonActivate;
+                @MouseButtonActivate.canceled += instance.OnMouseButtonActivate;
             }
         }
     }
@@ -333,5 +372,6 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnMouseButtonActivate(InputAction.CallbackContext context);
     }
 }
