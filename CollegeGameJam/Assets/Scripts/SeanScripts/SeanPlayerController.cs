@@ -47,9 +47,11 @@ public class SeanPlayerController : MonoBehaviour
     {
         Vector3 position = rb.position;
 
-        position = position + MoveForwardBasedOnCamera(inputVector) *walkSpeed * Time.fixedDeltaTime;
+        transform.position += MoveForwardBasedOnCamera(inputVector) *walkSpeed * Time.fixedDeltaTime;
 
-        rb.MovePosition(position);
+
+        
+       // rb.MovePosition(position);
     }
 
 
