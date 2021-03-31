@@ -13,6 +13,11 @@ public class SeanPlayerController : MonoBehaviour
     public Vector3 currentPosition;                  //Player's current postion value
     private Vector3 inputVector = new Vector3(0, 0);   //The input recieved by InputObject
     private Rigidbody rb;
+    
+    public LayerMask groundLayers;                  //detection for ground layers
+    [SerializeField]
+    private float jumpForce = 7f;                   //jump force of the player
+    public SphereCollider col;                      //sphere collider for ground detection
 
 
     [Tooltip("ATTACH the Main Camera object from the scene")]
@@ -21,6 +26,7 @@ public class SeanPlayerController : MonoBehaviour
     {
         playerActionMap = new PlayerActionMap();    // Creation of new PlayerActionMap C# Script that will be used for all called events
         rb = GetComponent<Rigidbody>();             // Reference to RigidBody
+        col = GetComponent<SphereCollider>();       // Reference to the sphere collider for ground detection
 
         playerActionMap.Default.Jump.started += ctx => Jump();
     }
@@ -83,9 +89,18 @@ public class SeanPlayerController : MonoBehaviour
         return inputVectorCam;
     }
 
-    public void Jump()
+    public void Jump()                                      //checks if player is grounded, then jumps if grounded
     {
-        Debug.Log("You jumped");
+        if (IsGrounded())
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+    }
+
+    private bool IsGrounded()                               //determines whether the player is grounded
+    {
+        return Physics.CheckCapsule(col.bounds.center,
+            new Vector3(col.bounds.center.x, col.bounds.min.y, col.bounds.center.z), col.radius * .9f, groundLayers);
     }
 
     private void OnEnable()
