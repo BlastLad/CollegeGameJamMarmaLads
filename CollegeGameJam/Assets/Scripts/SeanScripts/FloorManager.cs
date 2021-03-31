@@ -15,7 +15,9 @@ public class FloorManager : MonoBehaviour
 
     [SerializeField]
     int blockHeight = 5;
-    
+
+
+    int maxHeight = 15;
 
 
     
@@ -30,6 +32,11 @@ public class FloorManager : MonoBehaviour
     {
         if (playerObj.transform.position.y - this.transform.position.y >= blockHeight)
         {
+            if (this.transform.position.y - maxHeight >= 0)
+            {
+                return;
+            }
+
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + blockHeight, this.transform.position.x);
         }
         else if (playerObj.transform.position.y - this.transform.position.y <= -blockHeight)

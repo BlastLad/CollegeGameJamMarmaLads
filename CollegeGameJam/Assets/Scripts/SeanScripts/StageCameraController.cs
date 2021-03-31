@@ -52,11 +52,17 @@ public class StageCameraController : MonoBehaviour
     private void ActivateMouseCameraControl()
     {
         cineMachineInputProvider.XYAxis = mouseActionMap;
+
+  
+        cineMachineInputProvider.gameObject.GetComponent<CinemachineFreeLook>().m_YAxis.m_MaxSpeed = 1.6f;
     }
 
     private void DisableMouseCameraControl()
     {
         cineMachineInputProvider.XYAxis = controllerActionMap;
+
+     
+        cineMachineInputProvider.gameObject.GetComponent<CinemachineFreeLook>().m_YAxis.m_MaxSpeed = 2;
     }
 
    
