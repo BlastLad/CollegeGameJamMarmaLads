@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class FallRespawner : MonoBehaviour
 {
+    string PlayerString = "Player";
+
     private void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.tag==PlayerString)
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
