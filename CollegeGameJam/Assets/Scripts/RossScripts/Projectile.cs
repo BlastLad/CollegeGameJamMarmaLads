@@ -32,7 +32,7 @@ public class Projectile : MonoBehaviour
     {
         // If the projectile hits anything besides the player, its trigger will turn off
         // And after the duration of the particle animation, it will destroy itself
-        float timeTilDestroy = 1f;
+        float timeTilDestroy = 1.7f;
         HideSnowballAndPlayAnimation();
 
         yield return new WaitForSeconds(timeTilDestroy);
@@ -42,11 +42,14 @@ public class Projectile : MonoBehaviour
     IEnumerator ReloadLevel(GameObject player)
     {
         HideSnowballAndPlayAnimation();
+        SeanPlayerController.Instance.canMove = false;
         float levelReloadBuffer = 1.5f;   // This is temporary - I would like to wait for the duration of player's "Get hit" animation
         // ADD --- PLAY "GET HIT" ANIMATION
         // ADD --- DISABLE PLAYER CONTROLS
         yield return new WaitForSeconds(levelReloadBuffer);     //We can make this the duration of the player's "Get hit" animation
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Debug.Log("REACHED THIS ASWELL");
+
+        GameManager.Instance.ReSpawn();
     }
 
     private void HideSnowballAndPlayAnimation()

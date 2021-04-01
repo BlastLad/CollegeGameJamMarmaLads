@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class SnowManController : MonoBehaviour
 {
+
+    string PlayerString = "Player";
+
+
+    public Transform playerSpawnLocation;
+
+    public GameObject carrot;
+    public bool isCarrotActive = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +24,30 @@ public class SnowManController : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag(PlayerString))
+        {
+            other.gameObject.GetComponent<PlayerCheckPointControls>().SetCheckPoint(this.gameObject);
+        }
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag(PlayerString))
+        {
+            other.gameObject.GetComponent<PlayerCheckPointControls>().RemoveSnowMan();
+        }
+    }
+
+
+    public void BuildSnowMan()
+    {
+        GameManager.Instance.SetCurrentCheckPoint(playerSpawnLocation.position, this.gameObject);
+        carrot.SetActive(true);
+        isCarrotActive = true;
+    }
+
 }

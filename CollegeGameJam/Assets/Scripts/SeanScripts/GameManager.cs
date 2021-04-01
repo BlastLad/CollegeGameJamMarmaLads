@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     Vector3 SpawnPosition;
     Vector3 currentCheckPoint;
+    GameObject currentSnowMan;
     
     
     
@@ -35,16 +36,31 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void ReSpawn()
+    {
+        SeanPlayerController.Instance.transform.position = currentCheckPoint;
+        SeanPlayerController.Instance.canMove = true;
+    }
 
     public void SetSpawnPosition(Vector3 spawnPos)
     {
+        Debug.Log("REACHED");
         SpawnPosition = spawnPos;
         currentCheckPoint = spawnPos;
     }
 
 
-    public void SetCurrentCheckPoint(Vector3 spawnPos)
+    public void SetCurrentCheckPoint(Vector3 spawnPos, GameObject snowMan)
     {
+
+        if (currentSnowMan != null)
+        {
+            currentSnowMan.GetComponent<SnowManController>().carrot.SetActive(false);
+            currentSnowMan.GetComponent<SnowManController>().isCarrotActive = false;
+
+        }
+
         currentCheckPoint = spawnPos;
+        currentSnowMan = snowMan;
     }
 }

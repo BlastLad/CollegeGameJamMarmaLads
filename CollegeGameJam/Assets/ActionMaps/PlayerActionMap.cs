@@ -41,6 +41,14 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""CarrotPlace"",
+                    ""type"": ""Button"",
+                    ""id"": ""442ade75-c017-4b97-83e9-0503e74f37e8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -263,6 +271,39 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
                     ""action"": ""MouseButtonActivate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4d58ac5b-1745-4d83-b0a6-5ba7685d70cd"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CarrotPlace"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9e53b779-4ddd-42ed-9092-96b90e930b6a"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CarrotPlace"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""87239905-1a58-4cea-a71a-bfab901957b9"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CarrotPlace"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -274,6 +315,7 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
         m_Default_Movement = m_Default.FindAction("Movement", throwIfNotFound: true);
         m_Default_Jump = m_Default.FindAction("Jump", throwIfNotFound: true);
         m_Default_MouseButtonActivate = m_Default.FindAction("MouseButtonActivate", throwIfNotFound: true);
+        m_Default_CarrotPlace = m_Default.FindAction("CarrotPlace", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -326,6 +368,7 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
     private readonly InputAction m_Default_Movement;
     private readonly InputAction m_Default_Jump;
     private readonly InputAction m_Default_MouseButtonActivate;
+    private readonly InputAction m_Default_CarrotPlace;
     public struct DefaultActions
     {
         private @PlayerActionMap m_Wrapper;
@@ -333,6 +376,7 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
         public InputAction @Movement => m_Wrapper.m_Default_Movement;
         public InputAction @Jump => m_Wrapper.m_Default_Jump;
         public InputAction @MouseButtonActivate => m_Wrapper.m_Default_MouseButtonActivate;
+        public InputAction @CarrotPlace => m_Wrapper.m_Default_CarrotPlace;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -351,6 +395,9 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
                 @MouseButtonActivate.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnMouseButtonActivate;
                 @MouseButtonActivate.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnMouseButtonActivate;
                 @MouseButtonActivate.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnMouseButtonActivate;
+                @CarrotPlace.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnCarrotPlace;
+                @CarrotPlace.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnCarrotPlace;
+                @CarrotPlace.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnCarrotPlace;
             }
             m_Wrapper.m_DefaultActionsCallbackInterface = instance;
             if (instance != null)
@@ -364,6 +411,9 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
                 @MouseButtonActivate.started += instance.OnMouseButtonActivate;
                 @MouseButtonActivate.performed += instance.OnMouseButtonActivate;
                 @MouseButtonActivate.canceled += instance.OnMouseButtonActivate;
+                @CarrotPlace.started += instance.OnCarrotPlace;
+                @CarrotPlace.performed += instance.OnCarrotPlace;
+                @CarrotPlace.canceled += instance.OnCarrotPlace;
             }
         }
     }
@@ -373,5 +423,6 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnMouseButtonActivate(InputAction.CallbackContext context);
+        void OnCarrotPlace(InputAction.CallbackContext context);
     }
 }

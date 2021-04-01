@@ -9,7 +9,9 @@ public class FallRespawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag==PlayerString)
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (other.gameObject.tag == PlayerString)
+        {
+            GameManager.Instance.ReSpawn();
+        }
     }
 }

@@ -34,6 +34,11 @@ public class CarrotController : MonoBehaviour
         carrotText.text = "" + currentCarrots;
     }
 
+    public int GetCurrentCarrots()
+    {
+        return currentCarrots;
+    }
+
 
 
     public void AddToCarrots(int numToAdd)//pos or negative

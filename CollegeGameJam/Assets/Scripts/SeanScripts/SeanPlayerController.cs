@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class SeanPlayerController : MonoBehaviour
 {
+    public static SeanPlayerController Instance { get; private set; }
+
     [SerializeField]
     private float walkSpeed = 0;                       //walkSpeed for the player
     [SerializeField]
@@ -32,15 +34,18 @@ public class SeanPlayerController : MonoBehaviour
     public float linearDrag = 4;
 
 
-
+    public bool canMove { get; set; }
 
     private void Awake()
     {
+        Instance = this;
         playerActionMap = new PlayerActionMap();    // Creation of new PlayerActionMap C# Script that will be used for all called events
         rb = GetComponent<Rigidbody>();             // Reference to RigidBody
         col = GetComponent<CapsuleCollider>();       // Reference to the sphere collider for ground detection
+        canMove = true;
 
         playerActionMap.Default.Jump.started += ctx => Jump();
+        playerActionMap.Default.CarrotPlace.started += ctx => GetComponent<PlayerCheckPointControls>().PlaceCarrot();
     }
 
     // Start is called before the first frame update
@@ -54,7 +59,10 @@ public class SeanPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = Rotation; //To Rotate the player as necessary [NOT PART OF INPUT SYSTEM]
+        if (canMove)
+        {
+            transform.rotation = Rotation; //To Rotate the player as necessary [NOT PART OF INPUT SYSTEM]
+        }
 
         GravityController();
         
@@ -64,7 +72,10 @@ public class SeanPlayerController : MonoBehaviour
     {
         Vector3 position = rb.position;
 
-        transform.position += MoveForwardBasedOnCamera(inputVector) *walkSpeed * Time.fixedDeltaTime;
+        if (canMove)
+        {
+            transform.position += MoveForwardBasedOnCamera(inputVector) * walkSpeed * Time.fixedDeltaTime;
+        }
 
 
         
