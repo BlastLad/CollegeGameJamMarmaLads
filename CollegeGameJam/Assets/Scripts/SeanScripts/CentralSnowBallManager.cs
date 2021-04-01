@@ -28,10 +28,9 @@ public class CentralSnowBallManager : MonoBehaviour
         {
             Destroy(currentSnowBall);
         }
-        else
-        {
+        
             SpawnNewSnowBall();
-        }
+        
 
 
     }

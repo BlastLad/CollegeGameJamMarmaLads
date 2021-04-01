@@ -11,6 +11,11 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+       
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
         // No matter what the projectile collides with, it explodes into a particle effect
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<SphereCollider>().enabled = false;     //Turn off the trigger collider

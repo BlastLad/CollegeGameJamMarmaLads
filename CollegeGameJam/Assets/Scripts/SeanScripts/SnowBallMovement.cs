@@ -29,6 +29,7 @@ public class SnowBallMovement : MonoBehaviour
 
 
     string PlayerString = "Player";
+    string ProjectileString = "SnowBall";
 
 
     [SerializeField]
@@ -100,6 +101,9 @@ public class SnowBallMovement : MonoBehaviour
                 StartCoroutine(BeginPush(pushTime, other.gameObject));
             }
          
+        }
+        else if (other.gameObject.CompareTag(ProjectileString)) {
+            DestroySnowBall();
         }
 
     }

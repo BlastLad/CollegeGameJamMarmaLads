@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1083657658402801503}
   - component: {fileID: 1083657658402801500}
   - component: {fileID: 1083657658402801501}
+  - component: {fileID: 326727783869611091}
   m_Layer: 0
   m_Name: SnowBallSpawnPosition
   m_TagString: Untagged
@@ -313,6 +314,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowBallPrefab: {fileID: 1324654547364185927, guid: affd060555a71064381828bd729b33dd, type: 3}
   currentSnowBall: {fileID: 1083657659690818329}
+--- !u!114 &326727783869611091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083657658402801498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca75259642ee2f94f80157ce93c9de00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2120054872467250270
 PrefabInstance:
   m_ObjectHideFlags: 0
