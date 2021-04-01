@@ -7,6 +7,8 @@ public class SnowBallMovement : MonoBehaviour
     [SerializeField]
     float pushSpeed = 2f;
     [SerializeField]
+    float pushTime = 1.1f;
+    [SerializeField]
     float rayLength = 5.5f;
 
     [SerializeField]
@@ -27,6 +29,12 @@ public class SnowBallMovement : MonoBehaviour
 
 
     string PlayerString = "Player";
+
+
+    [SerializeField]
+    Transform[] cardinalDirections;
+    [SerializeField]
+    Vector3[] directionVectors;
 
 
 
@@ -53,7 +61,9 @@ public class SnowBallMovement : MonoBehaviour
             if (Vector3.Distance(startingPosition, transform.position) > unitToBlockRatio)
             {
                 transform.position = targetCenterPosition;
+                GetComponent<BoxCollider>().enabled = false;
                 snowBallMoving = false;
+                PostPushCheck();
                 return;
             }
 
@@ -84,17 +94,79 @@ public class SnowBallMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag(PlayerString))
         {
-            rayFirePosition = new Vector3(transform.position.x + 2.5f, transform.position.y + 2.5f, transform.position.z - 2.5f);
-
-            if (!Physics.Raycast(rayFirePosition, Vector3.forward, rayLength, WallDetection))//MIGHT NEED TO FIRE 2 RAYS DUE TO HALF BLOCKS BEING 2.5 high, WILL KNOW FOR SURE ONCE BUILT
+            
+            if (snowBallMoving == false)
             {
-                targetCenterPosition = transform.position + (Vector3.forward * unitToBlockRatio);
-                startingPosition = transform.position;
-                snowBallMoving = true;
+                StartCoroutine(BeginPush(pushTime, other.gameObject));
             }
          
         }
 
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.CompareTag(PlayerString))
+        {
+
+            StopAllCoroutines();
+
+        }
+    }
+
+    private IEnumerator BeginPush(float timeToWait, GameObject other)
+    {
+        yield return new WaitForSeconds(timeToWait);
+        DeterminePushDirection(other);
+
+    }
+
+    private void PostPushCheck()
+    {
+        GetComponent<BoxCollider>().enabled = true;
+    }
+
+
+    private void DeterminePushDirection(GameObject other)
+    {
+        rayFirePosition = new Vector3(transform.position.x + 2.5f, transform.position.y + 2.5f, transform.position.z - 2.5f);
+        Vector3 direction = other.transform.position - rayFirePosition;
+
+        RaycastHit hit;
+        Ray ray = new Ray(rayFirePosition, direction);
+
+        //Raycast(rayFirePosition, direction, rayLength, PlayerLayer);
+        Vector3 MovementDirection = Vector3.forward;
+        float minDistance = 100;
+
+        if ((Physics.Raycast(ray, out hit)))
+        {
+            Debug.Log("TARGET HIT" + direction.normalized.x + " " + (int)direction.normalized.y);
+
+
+
+
+            for (int i = 0; i < cardinalDirections.Length; i++)
+            {
+                float distance = Vector3.Distance(hit.transform.position, cardinalDirections[i].position);
+                Debug.Log(distance);
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    MovementDirection = directionVectors[i];
+                    Debug.Log("THIS IS THE DIRECTION " + directionVectors[i]);
+                }
+            }
+
+        }
+
+
+        if (!Physics.Raycast(rayFirePosition, MovementDirection, rayLength, WallDetection))//MIGHT NEED TO FIRE 2 RAYS DUE TO HALF BLOCKS BEING 2.5 high, WILL KNOW FOR SURE ONCE BUILT
+        {
+            targetCenterPosition = transform.position + (MovementDirection * unitToBlockRatio);
+            startingPosition = transform.position;
+            snowBallMoving = true;
+        }
     }
 
 
