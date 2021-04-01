@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/RossScenes/RossLevel1.unity
-    guid: 94e7b0ae2b89d42ff9c9878792a6f386
-  - enabled: 1
     path: Assets/Scenes/RossScenes/RossTestingSnowballs.unity
     guid: aee725ddc261f43e4875b91bc84b014e
   - enabled: 1
