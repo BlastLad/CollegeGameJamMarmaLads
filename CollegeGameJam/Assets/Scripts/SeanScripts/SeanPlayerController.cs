@@ -22,6 +22,18 @@ public class SeanPlayerController : MonoBehaviour
 
     [Tooltip("ATTACH the Main Camera object from the scene")]
     public Transform cameraLocation; //Reference to stage Camera
+
+
+
+
+
+    public float playerGravity = 1;
+    public float gravityMod = 5;
+    public float linearDrag = 4;
+
+
+
+
     private void Awake()
     {
         playerActionMap = new PlayerActionMap();    // Creation of new PlayerActionMap C# Script that will be used for all called events
@@ -34,13 +46,18 @@ public class SeanPlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
+
+        GameManager.Instance.SetSpawnPosition(this.transform.position);
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.rotation = Rotation; //To Rotate the player as necessary [NOT PART OF INPUT SYSTEM]
+
+        GravityController();
+        
     }
 
     private void FixedUpdate()
@@ -95,7 +112,27 @@ public class SeanPlayerController : MonoBehaviour
     {
         if (IsGrounded())
         {
+            
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            
+        }
+    }
+    void GravityController()
+    {
+        if (IsGrounded())
+        {
+            GetComponent<PlayerGravity>().gravityScale = 0;
+            rb.drag = linearDrag;
+        }
+        else
+        {
+            GetComponent<PlayerGravity>().gravityScale = playerGravity;
+            rb.drag = linearDrag * 0.15f;
+            if (rb.velocity.y < 0)
+            {
+                GetComponent<PlayerGravity>().gravityScale = playerGravity * gravityMod;
+            }
+
         }
     }
 
@@ -115,6 +152,23 @@ public class SeanPlayerController : MonoBehaviour
         playerActionMap.Disable();
     }
 
+   /* private void OnCollisionEnter(Collision other)
+    {
+        if (!IsGrounded() && other.gameObject.CompareTag("Ground"))
+        {
+            checkForCollision(other);
+        }
+    }
+
+    public void checkForCollision(Collision other)
+    {
+        Debug.Log(other.gameObject.name + "hit this1");
+        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), other.transform.position, 50f, groundLayers))
+        {
+            Debug.Log(other.gameObject.name + "hit this");
+           // rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+        }
+    }*/
 
 
     private Quaternion Rotation => Quaternion.LookRotation(RotationDirection);            //Functions to detemine the players local rotation
