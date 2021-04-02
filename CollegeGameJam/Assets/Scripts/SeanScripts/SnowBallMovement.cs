@@ -105,7 +105,7 @@ public class SnowBallMovement : MonoBehaviour
         if (other.gameObject.CompareTag(PlayerString))
         {
             
-            if (snowBallMoving == false)
+            if (snowBallMoving == false && other.transform.position.y <= this.transform.position.y + 2.5f)
             {
                 StartCoroutine(BeginPush(pushTime, other.gameObject));
             }

@@ -22,10 +22,18 @@ public class FallingPlatform : MonoBehaviour
     [SerializeField]
     Collider triggerCollider;
 
+
+    AudioSource fallingAudioSource;
+    [SerializeField]
+    AudioClip fallingBlockPrep;
+    [SerializeField]
+    AudioClip fallingBlockFall;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        fallingAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -59,8 +67,9 @@ public class FallingPlatform : MonoBehaviour
         //Change Model based on durability????
 
 
-        if (durability <= 0)
+        if (durability == 0)
         {
+            
             StartCoroutine(StartFall(fallTime));
         }
     }
@@ -70,6 +79,7 @@ public class FallingPlatform : MonoBehaviour
 
         //sound effect???
         //Change model????
+        fallingAudioSource.PlayOneShot(fallingBlockPrep);
 
         yield return new WaitForSeconds(timeToWait);
 
@@ -85,7 +95,7 @@ public class FallingPlatform : MonoBehaviour
 
         hasFallen = true;
 
-
+        fallingAudioSource.PlayOneShot(fallingBlockFall, 0.4f);
 
     }
 }

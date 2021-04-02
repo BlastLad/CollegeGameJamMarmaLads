@@ -9,6 +9,11 @@ public class GameManager : MonoBehaviour
     Vector3 SpawnPosition;
     Vector3 currentCheckPoint;
     GameObject currentSnowMan;
+    [SerializeField]
+    AudioClip levelLoadSfx;
+    [SerializeField]
+    AudioClip levelclearSfx;
+    AudioSource gameManagerSource;
     
     
     
@@ -23,11 +28,19 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+
+
+        gameManagerSource = GetComponent<AudioSource>();
     }
 
     private void Start()
     {
-        
+        gameManagerSource.PlayOneShot(levelLoadSfx);
+    }
+
+    public void PlayLevelClearSFX()
+    {
+        gameManagerSource.PlayOneShot(levelclearSfx);
     }
 
     // Update is called once per frame

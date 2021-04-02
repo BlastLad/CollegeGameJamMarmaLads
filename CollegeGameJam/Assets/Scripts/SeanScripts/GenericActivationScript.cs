@@ -14,6 +14,11 @@ public class GenericActivationScript : MonoBehaviour
     [SerializeField]
     string activationStringOverride;
 
+
+    AudioSource targetAudio;
+    [SerializeField]
+    AudioClip audioClipToPlay;
+
     
     
     // Start is called before the first frame update
@@ -24,6 +29,9 @@ public class GenericActivationScript : MonoBehaviour
             Debug.Log("Chanegd");
             activationString = activationStringOverride;
         }
+
+
+        targetAudio = GetComponent<AudioSource>();
     }
 
 
@@ -34,6 +42,7 @@ public class GenericActivationScript : MonoBehaviour
         if (other.gameObject.CompareTag(activationString))
         {
             ActivateObject();
+            targetAudio.PlayOneShot(audioClipToPlay);
         }
     }
 
