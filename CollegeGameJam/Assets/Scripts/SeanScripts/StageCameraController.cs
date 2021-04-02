@@ -17,8 +17,8 @@ public class StageCameraController : MonoBehaviour
     [SerializeField]
     InputActionReference mouseActionMap;
 
-    [SerializeField]
-    CinemachineInputProvider cineMachineInputProvider;
+    
+    public CinemachineInputProvider cineMachineInputProvider;
     
   
 

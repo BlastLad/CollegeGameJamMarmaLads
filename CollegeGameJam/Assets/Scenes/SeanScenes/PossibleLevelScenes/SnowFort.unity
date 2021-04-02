@@ -7817,7 +7817,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369186513}
-  m_LocalRotation: {x: 0.17794496, y: -0.29589978, z: 0.056205276, w: 0.9368137}
+  m_LocalRotation: {x: 0.17794496, y: -0.29589975, z: 0.05620527, w: 0.9368137}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -16101,7 +16101,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875881122}
-  m_LocalRotation: {x: -0.075151734, y: 0.92459095, z: -0.25250027, w: -0.27518636}
+  m_LocalRotation: {x: -0.07515174, y: 0.92459095, z: -0.25250024, w: -0.27518636}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -17611,7 +17611,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944911705}
-  m_LocalRotation: {x: -0.022355035, y: -0.25151163, z: 0.06156257, w: 0.96563566}
+  m_LocalRotation: {x: -0.022355042, y: -0.25151163, z: 0.061562564, w: 0.96563566}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -22964,7 +22964,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308284432}
-  m_LocalRotation: {x: -0.060175598, y: -0.2537307, z: 0.051659983, w: 0.9640181}
+  m_LocalRotation: {x: -0.0601756, y: -0.25373077, z: 0.05166, w: 0.9640181}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -31381,6 +31381,10 @@ PrefabInstance:
       propertyPath: throwSFX
       value: 
       objectReference: {fileID: 8300000, guid: 8972d87bdc52c42a6ba0e39fdac7ea41, type: 3}
+    - target: {fileID: 4990709931490900985, guid: 9a1a8f388cef8490eaf57e98414343d3, type: 3}
+      propertyPath: agitatedSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: afa4cde75731d429cb176feaade18b3a, type: 3}
     - target: {fileID: 5297352379925677739, guid: 9a1a8f388cef8490eaf57e98414343d3, type: 3}
       propertyPath: m_Name
       value: EnemyPrefab

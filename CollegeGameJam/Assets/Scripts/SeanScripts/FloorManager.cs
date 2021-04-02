@@ -58,6 +58,7 @@ public class FloorManager : MonoBehaviour
         {
             maincamera.GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority = 10;
             cinemachineCameraObj.GetComponent<CinemachineFreeLook>().Priority = 11;
+            PlayerCore.Instance.GetComponent<StageCameraController>().cineMachineInputProvider = cinemachineCameraObj.GetComponent<CinemachineInputProvider>();
         }
     }
 
