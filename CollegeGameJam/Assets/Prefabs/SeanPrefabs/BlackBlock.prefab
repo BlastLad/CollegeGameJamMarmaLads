@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4689422886043964943}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BlockCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 8343892505640812210}
   - component: {fileID: 8343892505640812211}
   - component: {fileID: 6954677506698677793}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BlackBlock
   m_TagString: Ground
   m_Icon: {fileID: 0}
