@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class EnemyAI : MonoBehaviour
 {
-
+    [Header("Attack")]
     [Tooltip("This changes the angle the projectile is thrown")]
     [SerializeField]
     float firingAngle = 45f;
@@ -14,9 +14,13 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     float gravity = 35f;
 
-    [Tooltip("This changes the delay of the next throw")]
+    [Tooltip("The duration of this animation")]
     [SerializeField]
-    float throwDelay = 4f; //CHANGE TO ANIMATION DURATION
+    float animLength = 1.81f;
+
+    [Tooltip("The duration of this animation")]
+    [SerializeField]
+    float throwDelay = 2.5f;
 
     [Tooltip("Enter the prefab of the projectile you want to fire")]
     [SerializeField]
@@ -26,19 +30,27 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     Transform firingPoint;
 
+    [Header("Crosshairs")]
     [SerializeField]
     GameObject crosshairs;
+
+    [SerializeField] int crosshairYOffset = 4;
 
     private Transform targetTransform;  // Found in start method
     [HideInInspector]
     public bool canFireProjectiles;
     private bool isFlying;
 
+    Animator enemyAnimator;
+    string IsThrowing = "isThrowing";
+
     private void Start()
     {
         targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
         canFireProjectiles = true;
         isFlying = false;
+        enemyAnimator = GetComponentInParent<Animator>();
+
         StartCoroutine(LaunchProjectiles());
     }
 
@@ -54,7 +66,9 @@ public class EnemyAI : MonoBehaviour
 
         while (canFireProjectiles)
         {
-            yield return new WaitForSeconds(throwDelay);
+            enemyAnimator.SetBool(IsThrowing, true);
+            yield return new WaitForSeconds(animLength);
+            enemyAnimator.SetBool(IsThrowing, false);
 
             isFlying = true;
 
@@ -81,8 +95,8 @@ public class EnemyAI : MonoBehaviour
                 yield return null;
             }
             StartCoroutine(newProjectile.GetComponent<Projectile>().DestroyProjectile());
-
             isFlying = false;
+            yield return new WaitForSeconds(throwDelay);
         }
     }
 
@@ -95,7 +109,7 @@ public class EnemyAI : MonoBehaviour
 
     private void ShowCrosshairs()
     {
-        Vector3 aboveHead = new Vector3(targetTransform.position.x, targetTransform.position.y + 3, targetTransform.position.z);
+        Vector3 aboveHead = new Vector3(targetTransform.position.x, targetTransform.position.y + crosshairYOffset, targetTransform.position.z);
         crosshairs.transform.position=aboveHead;
         if(!isFlying)
         {
