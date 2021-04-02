@@ -19,7 +19,7 @@ public class VictoryHandler : MonoBehaviour
 
     IEnumerator LevelComplete()
     {
-        GetComponent<EnemyAIBezierCurve>().canFireProjectiles = false;
+        GetComponent<EnemyAI>().canFireProjectiles = false;
         float levelCompleteBuffer = 1.5f;       // Must be enough time to play animations and SFX
 
         // ADD --- Play victory animations and sound effects

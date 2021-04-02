@@ -214,8 +214,8 @@ GameObject:
   - component: {fileID: 1324654547364185926}
   - component: {fileID: 1931240851690037593}
   m_Layer: 8
-  m_Name: SnowBall
-  m_TagString: Untagged
+  m_Name: GiantSnowball
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -265,6 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushSpeed: 1
+  pushTime: 1.1
   rayLength: 5.3
   WallDetection:
     serializedVersion: 2

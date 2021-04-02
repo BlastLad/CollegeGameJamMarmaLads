@@ -10,8 +10,12 @@ public class FloorManager : MonoBehaviour
 
     [SerializeField]
     GameObject cinemachineCameraObj;
-
+    [SerializeField]
+    GameObject maincamera;
     GameObject playerObj;
+
+
+    string playerString = "Player";
 
     [SerializeField]
     int blockHeight = 5;
@@ -30,6 +34,8 @@ public class FloorManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         if (playerObj.transform.position.y - this.transform.position.y >= blockHeight)
         {
             if (this.transform.position.y - maxHeight >= 0)
@@ -37,11 +43,21 @@ public class FloorManager : MonoBehaviour
                 return;
             }
 
-            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + blockHeight, this.transform.position.x);
+            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + blockHeight, this.transform.position.z);
         }
         else if (playerObj.transform.position.y - this.transform.position.y <= -blockHeight)
         {
-            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - blockHeight, this.transform.position.x);
+            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - blockHeight, this.transform.position.z);
+        }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag(playerString))
+        {
+            maincamera.GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority = 10;
+            cinemachineCameraObj.GetComponent<CinemachineFreeLook>().Priority = 11;
         }
     }
 
