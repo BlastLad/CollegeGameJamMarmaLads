@@ -36,6 +36,14 @@ public class SnowBallMovement : MonoBehaviour
     Transform[] cardinalDirections;
     [SerializeField]
     Vector3[] directionVectors;
+    [SerializeField]
+    AudioSource snowBallAudio;
+    [SerializeField]
+    AudioSource snowBallRoll;
+    [SerializeField]
+    AudioClip pushSfx;
+    [SerializeField]
+    AudioClip endPushSfx;
 
 
 
@@ -59,6 +67,7 @@ public class SnowBallMovement : MonoBehaviour
 
         if (snowBallMoving)
         {
+           
             if (Vector3.Distance(startingPosition, transform.position) > unitToBlockRatio)
             {
                 transform.position = targetCenterPosition;
@@ -120,14 +129,24 @@ public class SnowBallMovement : MonoBehaviour
 
     private IEnumerator BeginPush(float timeToWait, GameObject other)
     {
+        StartCoroutine(pushWait(0.22f));
         yield return new WaitForSeconds(timeToWait);
         DeterminePushDirection(other);
+        snowBallAudio.PlayOneShot(endPushSfx);
 
+
+    }
+
+    private IEnumerator pushWait(float timeToWait)
+    {
+        yield return new WaitForSeconds(timeToWait);
+        snowBallAudio.PlayOneShot(pushSfx);
     }
 
     private void PostPushCheck()
     {
         GetComponent<BoxCollider>().enabled = true;
+       
     }
 
 
@@ -170,6 +189,7 @@ public class SnowBallMovement : MonoBehaviour
             targetCenterPosition = transform.position + (MovementDirection * unitToBlockRatio);
             startingPosition = transform.position;
             snowBallMoving = true;
+            snowBallRoll.Play();
         }
     }
 

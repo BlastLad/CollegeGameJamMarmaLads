@@ -85,10 +85,21 @@ public class SeanPlayerController : MonoBehaviour
 
         CheckForRunAnimation();
         CheckForFallAnimation();
+
+        if (!IsGrounded())
+        {
+            walkSpeed = 7.25f;
+        }
+        else
+        {
+            walkSpeed = 6;
+        }
+
         if (canMove)
         {
             transform.position += MoveForwardBasedOnCamera(inputVector) * walkSpeed * Time.fixedDeltaTime;
         }
+
 
 
        // rb.MovePosition(position);

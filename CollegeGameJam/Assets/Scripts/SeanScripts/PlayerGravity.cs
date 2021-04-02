@@ -6,7 +6,7 @@ public class PlayerGravity : MonoBehaviour
 {
     public float gravityScale = 1.0f;
 
-    public static float globalGravity = -9.81f;
+    public static float globalGravity = -30f;
 
     Rigidbody rb;
 
