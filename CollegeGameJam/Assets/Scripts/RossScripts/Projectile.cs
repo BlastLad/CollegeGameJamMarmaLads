@@ -8,6 +8,16 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     ParticleSystem projectileCollisionVFX;
 
+    [SerializeField]
+    AudioClip playerImpactSFX;
+    [SerializeField]
+    float playerImpactVolume = 1f;
+    [SerializeField]
+    AudioClip groundImpactSFX;
+    [SerializeField]
+    float groundImpactVolume = 1f;
+
+
     private void OnCollisionEnter(Collision other)
     {
         // No matter what the projectile collides with, it explodes into a particle effect
@@ -19,10 +29,14 @@ public class Projectile : MonoBehaviour
             // When the projectile's box collider touches the player, we begin a coroutine play
             // A player animation and shortly reload the scene
             StartCoroutine(ReloadLevel(other.gameObject));
+            AudioSource.PlayClipAtPoint(playerImpactSFX, 0.9f * Camera.main.transform.position
+                + 0.1f * transform.position, playerImpactVolume);
         }
 
         else
         {
+            AudioSource.PlayClipAtPoint(groundImpactSFX, 0.9f * Camera.main.transform.position
+                + 0.1f * transform.position, groundImpactVolume);
             StartCoroutine(DestroyProjectile()); // this disables the projectile's trigger and then destroys
         }
     }

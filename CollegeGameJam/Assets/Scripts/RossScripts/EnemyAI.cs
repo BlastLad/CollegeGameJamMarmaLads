@@ -44,6 +44,12 @@ public class EnemyAI : MonoBehaviour
     Animator enemyAnimator;
     string IsThrowing = "isThrowing";
 
+    [Header("Audio Clips")]
+    [SerializeField]
+    AudioClip throwSFX;
+    [SerializeField]
+    float throwSFXVolume = 10f;
+
     private void Start()
     {
         targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -73,6 +79,9 @@ public class EnemyAI : MonoBehaviour
             isFlying = true;
 
             GameObject newProjectile = Instantiate(projectile, firingPoint.position, Quaternion.identity) as GameObject;
+
+            AudioSource.PlayClipAtPoint(throwSFX, 0.9f * Camera.main.transform.position
+                + 0.1f * transform.position, throwSFXVolume);   //This code makes the sound volume more adjustable
 
             float targetDistance = Vector3.Distance(newProjectile.transform.position, targetTransform.position); // Calculate distance to player
             float projectileVelocity = targetDistance / (Mathf.Sin(2 * firingAngle * Mathf.Deg2Rad) / gravity); // Calculate velocity needed to hit target

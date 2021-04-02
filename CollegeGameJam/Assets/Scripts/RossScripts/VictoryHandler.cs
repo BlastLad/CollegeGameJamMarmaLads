@@ -9,6 +9,12 @@ public class VictoryHandler : MonoBehaviour
     [SerializeField]
     string nextSceneToLoad;
 
+
+    [SerializeField]
+    AudioClip agitatedSFX;
+    [SerializeField]
+    float agitatedSFXVolume = 10f;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player") // When the player comes within the enemy's trigger radius, we will trigger LevelComplete()
@@ -20,6 +26,8 @@ public class VictoryHandler : MonoBehaviour
     IEnumerator LevelComplete()
     {
         GetComponent<EnemyAI>().canFireProjectiles = false;
+        AudioSource.PlayClipAtPoint(agitatedSFX, 0.9f * Camera.main.transform.position
+            + 0.1f * transform.position, agitatedSFXVolume);
         float levelCompleteBuffer = 1.5f;       // Must be enough time to play animations and SFX
 
         // ADD --- Play victory animations and sound effects

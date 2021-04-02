@@ -25,14 +25,24 @@ public class SeanPlayerController : MonoBehaviour
     [Tooltip("ATTACH the Main Camera object from the scene")]
     public Transform cameraLocation; //Reference to stage Camera
 
-
-
-
-
     public float playerGravity = 1;
     public float gravityMod = 5;
     public float linearDrag = 4;
 
+
+    Animator anim;
+    string IsRunningStr = "isRunning";
+    string IsJumpingStr = "isJumping";
+
+    [Header("Audio")]
+    [SerializeField]
+    AudioClip[] footsteps;
+    [SerializeField]
+    float footstepVolume = 1f;
+    [SerializeField]
+    AudioClip jumpSFX;
+    [SerializeField]
+    float jumpSFXVolume = 1f;
 
     public bool canMove { get; set; }
 
@@ -42,6 +52,7 @@ public class SeanPlayerController : MonoBehaviour
         playerActionMap = new PlayerActionMap();    // Creation of new PlayerActionMap C# Script that will be used for all called events
         rb = GetComponent<Rigidbody>();             // Reference to RigidBody
         col = GetComponent<CapsuleCollider>();       // Reference to the sphere collider for ground detection
+        anim = GetComponent<Animator>();            //Reference to the animator
         canMove = true;
 
         playerActionMap.Default.Jump.started += ctx => Jump();
@@ -72,21 +83,21 @@ public class SeanPlayerController : MonoBehaviour
     {
         Vector3 position = rb.position;
 
+        CheckForRunAnimation();
+        CheckForFallAnimation();
         if (canMove)
         {
             transform.position += MoveForwardBasedOnCamera(inputVector) * walkSpeed * Time.fixedDeltaTime;
         }
 
 
-        
        // rb.MovePosition(position);
     }
 
-
+    
     private Vector3 Direction { get; set; }
     public void OnMovement(InputAction.CallbackContext context)    //The function the unity event system calls Uses attached Player Input component
     {
-
         inputVector.x = context.ReadValue<Vector2>().x;                      //gets the vectors values passed in by the context of the call , keyboard, gamepad etc
         inputVector.z = context.ReadValue<Vector2>().y;
 
@@ -123,11 +134,37 @@ public class SeanPlayerController : MonoBehaviour
     {
         if (IsGrounded())
         {
-            
+            AudioSource.PlayClipAtPoint(jumpSFX, 0.9f * Camera.main.transform.position
+                + 0.1f * transform.position, jumpSFXVolume);
+            anim.SetBool(IsJumpingStr, true);
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            
         }
     }
+    
+    private void CheckForFallAnimation()
+    {
+        if (!IsGrounded() && rb.velocity.y < 1)
+        {
+            anim.SetBool(IsJumpingStr, false);
+        }
+    }
+
+    private void CheckForRunAnimation()
+    {
+        if(inputVector==Vector3.zero)
+        {
+            anim.SetBool(IsRunningStr, false);
+        }
+        else if (!IsGrounded())
+        {
+            anim.SetBool(IsRunningStr, false);
+        }
+        else
+        {
+            anim.SetBool(IsRunningStr, true);
+        }
+    }
+
     void GravityController()
     {
         if (IsGrounded())
@@ -139,7 +176,7 @@ public class SeanPlayerController : MonoBehaviour
         {
             GetComponent<PlayerGravity>().gravityScale = playerGravity;
             rb.drag = linearDrag * 0.15f;
-            if (rb.velocity.y < 0)
+            if (rb.velocity.y < Mathf.Epsilon)
             {
                 GetComponent<PlayerGravity>().gravityScale = playerGravity * gravityMod;
             }
@@ -192,4 +229,15 @@ public class SeanPlayerController : MonoBehaviour
     {
         return playerActionMap;
     }
+
+    public void Footstep()
+    {
+        if(IsGrounded())
+        {
+            AudioSource.PlayClipAtPoint(footsteps[Random.Range(0, footsteps.Length)], 0.9f * Camera.main.transform.position
+        + 0.1f * transform.position, footstepVolume);
+        }
+
+    }
+
 }

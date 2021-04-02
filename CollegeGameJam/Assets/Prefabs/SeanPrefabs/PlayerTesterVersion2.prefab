@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 7930816445685330451}
   m_Layer: 9
   m_Name: boyArmature
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 5995072650197091337}
   m_Layer: 9
   m_Name: BoyHolder
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -818,6 +818,7 @@ GameObject:
   - component: {fileID: 5501225250143194781}
   - component: {fileID: 1291763524}
   - component: {fileID: 1291763533}
+  - component: {fileID: 102045123676296944}
   - component: {fileID: 2965765953279447422}
   m_Layer: 9
   m_Name: PlayerTesterVersion2
@@ -897,6 +898,12 @@ MonoBehaviour:
   playerGravity: 0.8
   gravityMod: 2
   linearDrag: 3
+  footsteps:
+  - {fileID: 8300000, guid: 42d4e813d40134b509880debd4445f3b, type: 3}
+  - {fileID: 8300000, guid: d73efaa59e448418196a03983282f676, type: 3}
+  footstepVolume: 0.08
+  jumpSFX: {fileID: 8300000, guid: f5eef7b1601bb419f899e1b52572991a, type: 3}
+  jumpSFXVolume: 0.5
 --- !u!114 &5517690649518865114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1009,6 +1016,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNearSnowMan: 0
+--- !u!114 &102045123676296944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5517690649518865113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f0e890870cc4844bab872d5060f356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &2965765953279447422
 Animator:
   serializedVersion: 3

@@ -18,6 +18,9 @@ ModelImporter:
   - first:
       74: 5059020362793098526
     second: boyArmature|PJumpDown
+  - first:
+      74: -8467385501256202148
+    second: boyArmature|PJumpDown (1)
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -99,7 +102,21 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.1942446
+        functionName: Footstep
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.705036
+        functionName: Footstep
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
