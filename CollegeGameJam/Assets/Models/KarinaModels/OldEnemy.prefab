@@ -1141,6 +1141,7 @@ GameObject:
   - component: {fileID: 4990709931490900982}
   - component: {fileID: 4990709931490900984}
   - component: {fileID: 4990709931490900985}
+  - component: {fileID: 1867187672}
   m_Layer: 0
   m_Name: girl
   m_TagString: Enemy
@@ -1287,7 +1288,7 @@ MonoBehaviour:
   projectile: {fileID: 441387978606638933, guid: 64132195e8efb4dd280bba19d69bfe9e, type: 3}
   firingPoint: {fileID: 3963014202233162139}
   crosshairs: {fileID: 1931406217021692}
-  crosshairYOffset: 4.5
+  crosshairYOffset: 5
   canFireProjectiles: 1
   throwSFX: {fileID: 8300000, guid: b3cedc30c289547ebabe2e4c3370726d, type: 3}
   throwSFXVolume: 10
@@ -1304,8 +1305,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneToLoad: RossTestingSnowballs
-  agitatedSFX: {fileID: 0}
-  agitatedSFXVolume: 10
+  agitatedSFX: {fileID: 8300000, guid: afa4cde75731d429cb176feaade18b3a, type: 3}
+  agitatedSFXVolume: 6
+--- !u!54 &1867187672
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7413667991923595953}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7460538632904612228
 GameObject:
   m_ObjectHideFlags: 0
@@ -1734,7 +1751,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4561574706500452, guid: 23a3f7a9e42cc44b58955b0bd7f3b492, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4561574706500452, guid: 23a3f7a9e42cc44b58955b0bd7f3b492, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1742,7 +1759,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4561574706500452, guid: 23a3f7a9e42cc44b58955b0bd7f3b492, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4561574706500452, guid: 23a3f7a9e42cc44b58955b0bd7f3b492, type: 3}
       propertyPath: m_RootOrder
@@ -1754,7 +1771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4561574706500452, guid: 23a3f7a9e42cc44b58955b0bd7f3b492, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 4561574706500452, guid: 23a3f7a9e42cc44b58955b0bd7f3b492, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
