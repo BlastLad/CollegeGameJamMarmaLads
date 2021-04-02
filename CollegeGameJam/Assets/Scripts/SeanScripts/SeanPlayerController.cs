@@ -132,7 +132,7 @@ public class SeanPlayerController : MonoBehaviour
     {
         if (IsGrounded())
         {
-            GetComponent<PlayerGravity>().gravityScale = 0.1f;
+            GetComponent<PlayerGravity>().gravityScale = 0.3f;
             rb.drag = linearDrag;
         }
         else
