@@ -34,7 +34,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     GameObject crosshairs;
 
-    [SerializeField] int crosshairYOffset = 4;
+    [SerializeField] float crosshairYOffset = 4.5f;
 
     private Transform targetTransform;  // Found in start method
     [HideInInspector]
