@@ -5,15 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class VictoryHandler : MonoBehaviour
 {
-    [Tooltip("Enter name of the scene in the build you want to load when enemy is touched.")]
-    [SerializeField]
-    string nextSceneToLoad;
+
+    Transitioner transitioner;
 
 
     [SerializeField]
     AudioClip agitatedSFX;
     [SerializeField]
     float agitatedSFXVolume = 10f;
+
+    private void Start()
+    {
+        transitioner = FindObjectOfType<Transitioner>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -32,6 +36,6 @@ public class VictoryHandler : MonoBehaviour
 
         // ADD --- Play victory animations and sound effects
         yield return new WaitForSeconds(levelCompleteBuffer);
-        SceneManager.LoadScene(nextSceneToLoad);
+        StartCoroutine(transitioner.LoadNextScene());
     }
 }

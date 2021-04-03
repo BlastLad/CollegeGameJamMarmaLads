@@ -576,6 +576,7 @@ GameObject:
   - component: {fileID: 3566679348743432943}
   - component: {fileID: 177560720}
   - component: {fileID: 177560722}
+  - component: {fileID: -6414254058701384440}
   m_Layer: 10
   m_Name: SnowManCheckPoint
   m_TagString: Ground
@@ -654,6 +655,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.0262604, y: 0.23964024, z: 4.695091}
   m_Center: {x: 2.4775648, y: 4.3700986, z: 2.5951774}
+--- !u!95 &-6414254058701384440
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3566679348743432940}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 51bb97e99c84444d899face5248ea9c7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &5573058167272247840
 PrefabInstance:
   m_ObjectHideFlags: 0
