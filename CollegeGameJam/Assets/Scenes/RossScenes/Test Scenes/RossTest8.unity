@@ -6055,14 +6055,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1087206582219564396, guid: 011e980291ed50e4bb43c938964e7791, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1375266152300854738, guid: 011e980291ed50e4bb43c938964e7791, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5501225250143194781, guid: 011e980291ed50e4bb43c938964e7791, type: 3}
       propertyPath: cineMachineInputProvider
       value: 
@@ -6119,14 +6111,6 @@ PrefabInstance:
       propertyPath: cameraLocation
       value: 
       objectReference: {fileID: 930614923}
-    - target: {fileID: 5517690649518865115, guid: 011e980291ed50e4bb43c938964e7791, type: 3}
-      propertyPath: armature
-      value: 
-      objectReference: {fileID: 1220605372}
-    - target: {fileID: 6479538771036317932, guid: 011e980291ed50e4bb43c938964e7791, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 011e980291ed50e4bb43c938964e7791, type: 3}
 --- !u!43 &958793397
@@ -7006,11 +6990,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!4 &1220605372 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5995072650197091337, guid: 011e980291ed50e4bb43c938964e7791, type: 3}
-  m_PrefabInstance: {fileID: 956980150}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1223868749 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4897097740074309705, guid: f8f63ec6513f442f6a172ad34126ac2b, type: 3}
