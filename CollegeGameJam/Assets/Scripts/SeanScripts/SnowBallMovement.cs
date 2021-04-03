@@ -14,6 +14,8 @@ public class SnowBallMovement : MonoBehaviour
     [SerializeField]
     LayerMask WallDetection;
     [SerializeField]
+    LayerMask TopSlide;
+    [SerializeField]
     LayerMask PlayerLayer;
 
 
@@ -186,11 +188,38 @@ public class SnowBallMovement : MonoBehaviour
 
         if (!Physics.Raycast(rayFirePosition, MovementDirection, rayLength, WallDetection))//MIGHT NEED TO FIRE 2 RAYS DUE TO HALF BLOCKS BEING 2.5 high, WILL KNOW FOR SURE ONCE BUILT
         {
-            targetCenterPosition = transform.position + (MovementDirection * unitToBlockRatio);
-            startingPosition = transform.position;
-            snowBallMoving = true;
-            snowBallRoll.Play();
+            if (Physics.Raycast(rayFirePosition, MovementDirection, rayLength, TopSlide))
+            {
+                RaycastHit hitForSlide;
+                Ray raySlide = new Ray(rayFirePosition, MovementDirection);
+                if ((Physics.Raycast(raySlide, out hitForSlide))) {
+                    if (hitForSlide.collider.gameObject.CompareTag("TopSlide"))
+                    {
+                        hitForSlide.collider.gameObject.GetComponent<SlideController>().AddToTrack(this.gameObject);
+                    }
+                }
+                snowBallRoll.Play();
+            }
+            else
+            {
+                targetCenterPosition = transform.position + (MovementDirection * unitToBlockRatio);
+                startingPosition = transform.position;
+                snowBallMoving = true;
+                snowBallRoll.Play();
+            }
         }
+    }
+
+
+    public void SetCanBeDestroyed(bool val)
+    {
+
+        if (val == true)
+        {
+            spawnPosition = transform.position;
+        }
+
+        canBeDestroyed = val;
     }
 
 
