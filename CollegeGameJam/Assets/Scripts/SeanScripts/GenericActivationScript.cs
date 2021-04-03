@@ -47,6 +47,16 @@ public class GenericActivationScript : MonoBehaviour
     }
 
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag(activationString))
+        {
+            ActivateObject();
+            targetAudio.PlayOneShot(audioClipToPlay);
+        }
+    }
+
+
 
     private void ActivateObject()
     {

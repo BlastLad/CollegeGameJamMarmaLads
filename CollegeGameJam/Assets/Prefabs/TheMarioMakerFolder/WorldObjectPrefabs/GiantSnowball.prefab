@@ -271,7 +271,7 @@ MonoBehaviour:
   rayLength: 5.3
   WallDetection:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1280
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 512
