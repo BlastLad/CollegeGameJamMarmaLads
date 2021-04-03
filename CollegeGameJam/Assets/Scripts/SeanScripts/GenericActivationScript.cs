@@ -19,6 +19,13 @@ public class GenericActivationScript : MonoBehaviour
     [SerializeField]
     AudioClip audioClipToPlay;
 
+    [SerializeField]
+    GameObject objectToRotate;
+    bool isRotating = false;
+    [SerializeField]
+    float rpm;
+    [SerializeField]
+    float spintime;
     
     
     // Start is called before the first frame update
@@ -60,6 +67,7 @@ public class GenericActivationScript : MonoBehaviour
 
     private void ActivateObject()
     {
+        StopAllCoroutines();
         if (!objectToActivate.active)
         {
             objectToActivate.SetActive(true);   //If the object is something that is just being activated that occurs her
@@ -69,12 +77,27 @@ public class GenericActivationScript : MonoBehaviour
             objectToActivate.GetComponent<ActivateInterface>().Activate();    //If the object is already activated then it activates a function that uses this interface on the Object. [All will have the xxxInter name]
                                                                                 
         }
+
+        isRotating = true;
+        StartCoroutine(stopRotating());
+
+    }
+
+
+    private IEnumerator stopRotating()
+    {
+        yield return new WaitForSeconds(spintime);
+        isRotating = false;
+        objectToRotate.transform.localRotation = Quaternion.Euler(0, 0, 0);
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (isRotating)
+        {
+           objectToRotate.transform.Rotate(0, 6.0f * rpm * Time.deltaTime, 0);
+        }
     }
 }

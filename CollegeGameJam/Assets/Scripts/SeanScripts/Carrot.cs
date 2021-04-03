@@ -9,7 +9,15 @@ public class Carrot : MonoBehaviour
 
     int carrotNum = 1;
     // Start is called before the first frame update
+    [SerializeField]
+    GameObject childObj;
+    AudioSource carrotAudio;
 
+
+    private void Awake()
+    {
+        carrotAudio = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,8 +30,18 @@ public class Carrot : MonoBehaviour
     private void CollectCarrot()
     {
         CarrotController.Instance.AddToCarrots(carrotNum);
+        carrotAudio.Play();
+        GetComponent<Collider>().enabled = false;
+        childObj.SetActive(false);
+        //Destroy(this.gameObject); //may need to be a coruotine depending on audio
+        StartCoroutine(destroycarrot(1f));
 
-        Destroy(this.gameObject); //may need to be a coruotine depending on audio
+    }
 
+
+    private IEnumerator destroycarrot(float timeToWait)
+    {
+        yield return new WaitForSeconds(timeToWait);
+        Destroy(this.gameObject);
     }
 }
