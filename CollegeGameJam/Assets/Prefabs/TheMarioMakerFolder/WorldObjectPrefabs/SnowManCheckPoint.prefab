@@ -235,7 +235,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3566679347891923830}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.11800003, y: 1.4939997, z: 0.11800003}
+  m_LocalPosition: {x: -0.11800003, y: 1.187, z: 0.11800003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3566679347822882251}
@@ -576,7 +576,6 @@ GameObject:
   - component: {fileID: 3566679348743432943}
   - component: {fileID: 177560720}
   - component: {fileID: 177560722}
-  - component: {fileID: -6414254058701384440}
   m_Layer: 10
   m_Name: SnowManCheckPoint
   m_TagString: Ground
@@ -626,6 +625,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpawnLocation: {fileID: 3566679347815295202}
+  carrotSFX: {fileID: 8300000, guid: bf02cdc8889d543aeadfba344962f5e8, type: 3}
+  carrotSFXVolume: 5
   carrot: {fileID: 3566679347172014315}
   isCarrotActive: 0
 --- !u!136 &177560720
@@ -655,25 +656,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.0262604, y: 0.23964024, z: 4.695091}
   m_Center: {x: 2.4775648, y: 4.3700986, z: 2.5951774}
---- !u!95 &-6414254058701384440
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3566679348743432940}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 51bb97e99c84444d899face5248ea9c7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &5573058167272247840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -725,6 +707,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7379838860350875478, guid: 0c9d6e705e679f74989930bea10a88b7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.51
+      objectReference: {fileID: 0}
     - target: {fileID: -6945867853414281351, guid: 0c9d6e705e679f74989930bea10a88b7, type: 3}
       propertyPath: m_Materials.Array.data[5]
       value: 
@@ -737,6 +723,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 0c9d6e705e679f74989930bea10a88b7, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 51bb97e99c84444d899face5248ea9c7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c9d6e705e679f74989930bea10a88b7, type: 3}
 --- !u!4 &5394683008985298379 stripped

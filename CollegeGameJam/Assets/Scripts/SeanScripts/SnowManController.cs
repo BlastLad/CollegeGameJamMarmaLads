@@ -9,6 +9,10 @@ public class SnowManController : MonoBehaviour
 
 
     public Transform playerSpawnLocation;
+    [SerializeField]
+    AudioClip carrotSFX;
+    [SerializeField]
+    float carrotSFXVolume = 1f;
 
     public GameObject carrot;
     public bool isCarrotActive = false;
@@ -48,6 +52,10 @@ public class SnowManController : MonoBehaviour
         GameManager.Instance.SetCurrentCheckPoint(playerSpawnLocation.position, this.gameObject);
         carrot.SetActive(true);
         isCarrotActive = true;
+        //FX
+        GetComponentInChildren<Animator>().SetTrigger("reached");
+        AudioSource.PlayClipAtPoint(carrotSFX, 0.9f * Camera.main.transform.position
+                + 0.1f * transform.position, carrotSFXVolume);
     }
 
 }
