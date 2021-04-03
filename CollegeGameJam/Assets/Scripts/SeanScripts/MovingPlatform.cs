@@ -22,6 +22,10 @@ public class MovingPlatform : MonoBehaviour
     Vector3 initalPosition;
 
     Vector3 nextPos;
+    [SerializeField]
+    bool hasDelay = false;
+    [SerializeField]
+    float delayTime = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -36,20 +40,31 @@ public class MovingPlatform : MonoBehaviour
         if (isMoving)
         {
 
-            if (Vector2.Distance(transform.position, pos1.position) < 0.1f)
+            if (Vector3.Distance(transform.position, pos1.position) < 0.1f)
             {
-                // Debug.Log(pos1 + "Reached");
+               // Debug.Log(pos1 + "Reached" + Vector2.Distance(transform.position, pos1.position));
                 nextPos = pos2.position;
+                if (hasDelay)
+                {
+                    isMoving = false;
+                    StartCoroutine(DelayTimer(delayTime));
+                }
             }
-            if (Vector2.Distance(transform.position, pos2.position) < 0.1f)
+            else if (Vector3.Distance(transform.position, pos2.position) < 0.1f)
             {
-                /// Debug.Log(pos2 + " 2 Reached");
+              //  Debug.Log(pos1 + "Reached" + Vector2.Distance(transform.position, pos1.position));
+                //Debug.Log(pos2 + " 2 Reached");
                 if (shouldRebound)
                 {                   
                     nextPos = pos1.position;
+                    if (hasDelay)
+                    {
+                        isMoving = false;
+                        StartCoroutine(DelayTimer(delayTime));
+
+                    }
                 }
             }
-
             transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
 
             
@@ -58,6 +73,12 @@ public class MovingPlatform : MonoBehaviour
         }
     }
 
+
+    private IEnumerator DelayTimer(float timeToWait)
+    {
+        yield return new WaitForSeconds(timeToWait);
+        isMoving = true;
+    }
 
     private void OnCollisionEnter(Collision other)
     {

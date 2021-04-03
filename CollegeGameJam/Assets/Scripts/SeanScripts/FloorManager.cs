@@ -56,11 +56,14 @@ public class FloorManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag(playerString))
         {
+          //  maincamera.GetComponent<CinemachineBrain>().ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineFreeLook>().m_Transitions.m_InheritPosition = true;
             maincamera.GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority = 10;
             cinemachineCameraObj.GetComponent<CinemachineFreeLook>().Priority = 11;
             PlayerCore.Instance.GetComponent<StageCameraController>().cineMachineInputProvider = cinemachineCameraObj.GetComponent<CinemachineInputProvider>();
         }
     }
+
+
 
 
 }

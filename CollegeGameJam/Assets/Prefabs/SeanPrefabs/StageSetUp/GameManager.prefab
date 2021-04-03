@@ -61,6 +61,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelLoadSfx: {fileID: 8300000, guid: 2eeaea0e39cca47778c16d364a5a441d, type: 3}
   levelclearSfx: {fileID: 8300000, guid: c60ac526bacfb4760956c6fd834d9906, type: 3}
+  mainCameraAudio: {fileID: 0}
+  LevelTheme: {fileID: 8300000, guid: d52487f22af027943890f4a75001a2bc, type: 3}
+  loopStart: 6.076
+  loopEnd: 78.987
 --- !u!82 &6583452659033982202
 AudioSource:
   m_ObjectHideFlags: 0

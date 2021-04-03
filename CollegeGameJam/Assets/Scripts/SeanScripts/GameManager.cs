@@ -15,6 +15,15 @@ public class GameManager : MonoBehaviour
     AudioClip levelclearSfx;
     AudioSource gameManagerSource;
     
+
+    [SerializeField]
+    AudioSource mainCameraAudio;
+    [SerializeField]
+    AudioClip LevelTheme;
+    [SerializeField]
+    float loopStart;
+    [SerializeField]
+    float loopEnd;
     
     
     // Start is called before the first frame update
@@ -27,6 +36,11 @@ public class GameManager : MonoBehaviour
         else
         {
             Instance = this;
+            if (mainCameraAudio != null)
+            {
+         
+                PlaySoundInterval(0, loopEnd);
+            }
         }
 
 
@@ -46,7 +60,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (mainCameraAudio != null)
+        {
+            if (mainCameraAudio.isPlaying == false)
+            {
+                mainCameraAudio.clip = LevelTheme;
+                PlaySoundInterval(loopStart, loopEnd);
+            }
+        }
     }
 
     public void ReSpawn()
@@ -75,5 +96,14 @@ public class GameManager : MonoBehaviour
 
         currentCheckPoint = spawnPos;
         currentSnowMan = snowMan;
+    }
+
+
+    void PlaySoundInterval(float fromSeconds, float toSeconds)
+    {
+        mainCameraAudio.time = fromSeconds;
+        mainCameraAudio.Play();
+        mainCameraAudio.SetScheduledEndTime(AudioSettings.dspTime + (toSeconds - fromSeconds));
+
     }
 }
