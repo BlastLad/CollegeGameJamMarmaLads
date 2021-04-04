@@ -4943,7 +4943,7 @@ MonoBehaviour:
   playerImpactSFX: {fileID: 8300000, guid: 34523c74175fa419ba7c3e790e5a20a7, type: 3}
   playerImpactVolume: 1
   groundImpactSFX: {fileID: 8300000, guid: a8363e9c2e21748e5bd2894cfcc94367, type: 3}
-  groundImpactVolume: 1
+  groundImpactVolume: 0.3
 --- !u!82 &41333495
 AudioSource:
   m_ObjectHideFlags: 0
