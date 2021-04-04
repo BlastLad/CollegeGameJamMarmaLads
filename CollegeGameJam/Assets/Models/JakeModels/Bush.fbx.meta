@@ -3,7 +3,17 @@ guid: e6be8cb8ab3bc124c9548909eac61016
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Snow
+    second: {fileID: 2100000, guid: 696b258b2febbf4458f01ba1a2004b7f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tree
+    second: {fileID: 2100000, guid: abb74b11ed5d2b74d981367efbf468e4, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

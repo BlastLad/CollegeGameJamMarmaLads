@@ -3,7 +3,12 @@ guid: eb61026fbb9851d44b557b67016f988a
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FallingBlock
+    second: {fileID: 2100000, guid: 9faf7b3db7d5d34408f13e3608e52035, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

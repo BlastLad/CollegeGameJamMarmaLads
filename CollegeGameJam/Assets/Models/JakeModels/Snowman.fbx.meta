@@ -6,7 +6,37 @@ ModelImporter:
   - first:
       74: 7669540145361774867
     second: Armature|SnowmanBounce
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SnM_Arms
+    second: {fileID: 2100000, guid: 3d53261d926988947bebf52672fe367c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SnM_Body
+    second: {fileID: 2100000, guid: 696b258b2febbf4458f01ba1a2004b7f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SnM_Carrot
+    second: {fileID: 2100000, guid: 4a851b3b597041b4988e78a5205343d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SnM_Face
+    second: {fileID: 2100000, guid: c9f6cf7544971c3438a71d574dbf36fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Snow
+    second: {fileID: 2100000, guid: 696b258b2febbf4458f01ba1a2004b7f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ch_p_blush
+    second: {fileID: 2100000, guid: a6922da288482ad44984d4e161cf891e, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
