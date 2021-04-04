@@ -1304,8 +1304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fa02104aca743eb902ccecf036a101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agitatedSFX: {fileID: 8300000, guid: 9172758d2564d4a85985d134f1ca2872, type: 3}
-  agitatedSFXVolume: 1
+  goalSFX: {fileID: 8300000, guid: 9172758d2564d4a85985d134f1ca2872, type: 3}
 --- !u!54 &1867187672
 Rigidbody:
   m_ObjectHideFlags: 0

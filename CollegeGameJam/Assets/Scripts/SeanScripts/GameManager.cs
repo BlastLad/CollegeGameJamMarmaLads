@@ -113,7 +113,18 @@ public class GameManager : MonoBehaviour
 
     public void ReloadLevel()
     {
-
+       // Time.timeScale = 0f;
         SceneManager.LoadScene(buildNum);
+    }
+
+    public void NextLevel(int num)
+    {
+        SceneManager.LoadScene(num);
+    }
+
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

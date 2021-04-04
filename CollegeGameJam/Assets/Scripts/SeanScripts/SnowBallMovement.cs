@@ -137,7 +137,7 @@ public class SnowBallMovement : MonoBehaviour
         playerAnim.SetBool("isPushing", true);
         yield return new WaitForSeconds(timeToWait);
         DeterminePushDirection(other);
-        snowBallAudio.PlayOneShot(endPushSfx);
+        snowBallAudio.PlayOneShot(endPushSfx, 0.8f);
         
 
     }
@@ -145,7 +145,7 @@ public class SnowBallMovement : MonoBehaviour
     private IEnumerator pushWait(float timeToWait)
     {
         yield return new WaitForSeconds(timeToWait);
-        snowBallAudio.PlayOneShot(pushSfx);
+        snowBallAudio.PlayOneShot(pushSfx, 0.8f);
     }
 
     private void PostPushCheck()

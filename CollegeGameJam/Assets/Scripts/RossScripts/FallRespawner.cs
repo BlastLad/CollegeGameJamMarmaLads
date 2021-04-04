@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class FallRespawner : MonoBehaviour
 {
     string PlayerString = "Player";
-    [SerializeField]
     AudioSource audioSource;
 
     private void Start()

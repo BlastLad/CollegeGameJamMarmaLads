@@ -6,12 +6,39 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SeanScenes/PossibleLevelScenes/Spires.unity
-    guid: f194da9c13a14c44b9174ea9c12d6753
+    path: Assets/Scenes/KarinaScenes/KarinaTitleScene.unity
+    guid: 84a2ebe4a3d99c14ba6c61eb63c926dd
+  - enabled: 1
+    path: Assets/Scenes/SeanScenes/PossibleLevelScenes/Tutorial.unity
+    guid: 87903cfcc21cbc14888ed7d316312b60
+  - enabled: 1
+    path: Assets/Scenes/SeanScenes/PossibleLevelScenes/SnowFort.unity
+    guid: 5003d84fae885b7499b0cdfe2c7f697e
+  - enabled: 1
+    path: Assets/Scenes/SeanScenes/PossibleLevelScenes/Splunker.unity
+    guid: e6d90a9cdc9fb4a4e87a7236b7f67e2e
+  - enabled: 1
+    path: Assets/Scenes/RossScenes/Levels/OnTheMove.unity
+    guid: b7dc3580cc5f040d68601c3f1b673d54
+  - enabled: 1
+    path: Assets/Scenes/SeanScenes/PossibleLevelScenes/SnowPark.unity
+    guid: 1f9ac1e426c42a34baae159f5a727124
+  - enabled: 1
+    path: Assets/Scenes/RossScenes/Levels/TinyMountains.unity
+    guid: a9de9294b33e54bdaa42228e3e4e8d56
+  - enabled: 1
+    path: Assets/Scenes/SeanScenes/PossibleLevelScenes/TargetPractice.unity
+    guid: 339efbfd9e54adc47908673c7df772c5
+  - enabled: 1
+    path: Assets/Scenes/RossScenes/Levels/Maze.unity
+    guid: abbaa0aacfcfc42998824445b45cdaa8
   - enabled: 1
     path: Assets/Scenes/RossScenes/Levels/DarkSnowls.unity
     guid: 4037ebe399e27441cbdedfa3123f03b2
   - enabled: 1
-    path: Assets/Scenes/RossScenes/Levels/Maze.unity
-    guid: abbaa0aacfcfc42998824445b45cdaa8
+    path: Assets/Scenes/SeanScenes/PossibleLevelScenes/Spires.unity
+    guid: f194da9c13a14c44b9174ea9c12d6753
+  - enabled: 1
+    path: Assets/Scenes/SeanScenes/PossibleLevelScenes/Credits.unity
+    guid: 6de811d6994859342984364e7e677d4d
   m_configObjects: {}
