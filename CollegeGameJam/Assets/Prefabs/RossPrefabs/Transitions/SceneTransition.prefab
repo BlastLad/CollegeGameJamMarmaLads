@@ -221,8 +221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneToLoad: TinyMountains
-  levelFadeOutSFX: {fileID: 0}
-  levelFadeOutSFXVolume: 0
+  levelFadeOutSFX: {fileID: 8300000, guid: 790a46b4076d64fd49a9eb6b0d4af0cd, type: 3}
+  levelFadeOutSFXVolume: 0.2
 --- !u!1 &6589900888516123129
 GameObject:
   m_ObjectHideFlags: 0

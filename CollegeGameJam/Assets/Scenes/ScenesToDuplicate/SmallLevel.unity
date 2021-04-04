@@ -1500,6 +1500,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -211.79999
       objectReference: {fileID: 0}
+    - target: {fileID: 5018401753690502713, guid: 5057115068b0b4e41ac4fca3062050b9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 29.29004
+      objectReference: {fileID: 0}
+    - target: {fileID: 5018401753690502713, guid: 5057115068b0b4e41ac4fca3062050b9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 35.089966
+      objectReference: {fileID: 0}
     - target: {fileID: 5018401753897161888, guid: 5057115068b0b4e41ac4fca3062050b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1530,7 +1538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5018401753897161888, guid: 5057115068b0b4e41ac4fca3062050b9, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5018401753897161888, guid: 5057115068b0b4e41ac4fca3062050b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6332,6 +6340,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 176676127, guid: 9a1a8f388cef8490eaf57e98414343d3, type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 176676127, guid: 9a1a8f388cef8490eaf57e98414343d3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452417014521382507, guid: 9a1a8f388cef8490eaf57e98414343d3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4812141560411593745, guid: 9a1a8f388cef8490eaf57e98414343d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.536411
@@ -6380,7 +6400,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyPrefab
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 176676127, guid: 9a1a8f388cef8490eaf57e98414343d3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9a1a8f388cef8490eaf57e98414343d3, type: 3}
 --- !u!43 &1165466914
 Mesh:
@@ -9398,6 +9419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da1d1b986e50049ea9db4851b6407658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
 --- !u!65 &1962041027
 BoxCollider:
   m_ObjectHideFlags: 0

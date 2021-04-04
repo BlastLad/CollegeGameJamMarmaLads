@@ -777,7 +777,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5297352379925677739}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: 071076517b87e434995912fb78432ec7, type: 3}
   m_Controller: {fileID: 9100000, guid: 98f154027339bc64897ae56c4f0d0558, type: 2}
   m_CullingMode: 1
@@ -1142,6 +1142,7 @@ GameObject:
   - component: {fileID: 4990709931490900984}
   - component: {fileID: 4990709931490900985}
   - component: {fileID: 1867187672}
+  - component: {fileID: 176676127}
   m_Layer: 0
   m_Name: girl
   m_TagString: Enemy
@@ -1281,10 +1282,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50abfe37f472d4b6b95ed407aa22e9d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firingAngle: 25
-  gravity: 30
+  firingAngle: 80
+  gravity: 25
   animLength: 1.81
-  throwDelay: 1.85
+  throwDelay: 1
   projectile: {fileID: 441387978606638933, guid: 64132195e8efb4dd280bba19d69bfe9e, type: 3}
   firingPoint: {fileID: 3963014202233162139}
   crosshairs: {fileID: 1931406217021692}
@@ -1304,7 +1305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fa02104aca743eb902ccecf036a101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneToLoad: RossTestingSnowballs
   agitatedSFX: {fileID: 8300000, guid: afa4cde75731d429cb176feaade18b3a, type: 3}
   agitatedSFXVolume: 6
 --- !u!54 &1867187672
@@ -1323,6 +1323,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &176676127
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7413667991923595953}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 071076517b87e434995912fb78432ec7, type: 3}
+  m_Controller: {fileID: 9100000, guid: 98f154027339bc64897ae56c4f0d0558, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7460538632904612228
 GameObject:
   m_ObjectHideFlags: 0
