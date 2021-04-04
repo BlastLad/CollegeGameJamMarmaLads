@@ -50,6 +50,9 @@ MonoBehaviour:
   objectToActivate: {fileID: 0}
   activationStringOverride: 
   audioClipToPlay: {fileID: 8300000, guid: ed3b53be9c09e4ee78a508477d08d909, type: 3}
+  objectToRotate: {fileID: 2938445248730252077}
+  rpm: 40
+  spintime: 1.49
 --- !u!65 &2938445248566438516
 BoxCollider:
   m_ObjectHideFlags: 0
