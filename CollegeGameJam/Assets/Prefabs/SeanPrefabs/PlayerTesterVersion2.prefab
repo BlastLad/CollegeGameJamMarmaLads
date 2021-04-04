@@ -898,9 +898,10 @@ MonoBehaviour:
   playerGravity: 0.8
   gravityMod: 2
   linearDrag: 3
-  footsteps:
-  - {fileID: 8300000, guid: 42d4e813d40134b509880debd4445f3b, type: 3}
-  - {fileID: 8300000, guid: d73efaa59e448418196a03983282f676, type: 3}
+  snowFootsteps: []
+  woodFootsteps:
+  - {fileID: 8300000, guid: c116fa1cbc5094ce7a9d134945cab3ef, type: 3}
+  - {fileID: 8300000, guid: 27abd382881ea4f9b9ad9e4df21eeb6f, type: 3}
   footstepVolume: 0.08
   jumpSFX: {fileID: 8300000, guid: f5eef7b1601bb419f899e1b52572991a, type: 3}
   jumpSFXVolume: 0.5

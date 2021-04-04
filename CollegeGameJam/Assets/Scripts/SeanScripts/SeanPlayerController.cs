@@ -36,9 +36,12 @@ public class SeanPlayerController : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField]
-    AudioClip[] footsteps;
+    AudioClip[] snowFootsteps;
+    [SerializeField]
+    AudioClip[] woodFootsteps;
     [SerializeField]
     float footstepVolume = 1f;
+
     [SerializeField]
     AudioClip jumpSFX;
     [SerializeField]
@@ -245,7 +248,7 @@ public class SeanPlayerController : MonoBehaviour
     {
         if(IsGrounded())
         {
-            AudioSource.PlayClipAtPoint(footsteps[Random.Range(0, footsteps.Length)], 0.9f * Camera.main.transform.position
+            AudioSource.PlayClipAtPoint(snowFootsteps[Random.Range(0, snowFootsteps.Length)], 0.9f * Camera.main.transform.position
         + 0.1f * transform.position, footstepVolume);
         }
 

@@ -1281,10 +1281,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50abfe37f472d4b6b95ed407aa22e9d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firingAngle: 80
+  firingAngle: 45
   gravity: 25
   animLength: 1.81
-  throwDelay: 1
+  throwDelay: 0.2
   projectile: {fileID: 441387978606638933, guid: 64132195e8efb4dd280bba19d69bfe9e, type: 3}
   firingPoint: {fileID: 3963014202233162139}
   crosshairs: {fileID: 1931406217021692}
@@ -1304,8 +1304,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fa02104aca743eb902ccecf036a101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agitatedSFX: {fileID: 8300000, guid: afa4cde75731d429cb176feaade18b3a, type: 3}
-  agitatedSFXVolume: 6
+  agitatedSFX: {fileID: 8300000, guid: 9172758d2564d4a85985d134f1ca2872, type: 3}
+  agitatedSFXVolume: 1
 --- !u!54 &1867187672
 Rigidbody:
   m_ObjectHideFlags: 0
