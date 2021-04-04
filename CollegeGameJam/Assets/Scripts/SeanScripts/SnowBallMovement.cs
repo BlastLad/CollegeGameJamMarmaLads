@@ -134,10 +134,11 @@ public class SnowBallMovement : MonoBehaviour
     private IEnumerator BeginPush(float timeToWait, GameObject other)
     {
         StartCoroutine(pushWait(0.22f));
+        playerAnim.SetBool("isPushing", true);
         yield return new WaitForSeconds(timeToWait);
         DeterminePushDirection(other);
         snowBallAudio.PlayOneShot(endPushSfx);
-        playerAnim.SetBool("isPushing", true);
+        
 
     }
 

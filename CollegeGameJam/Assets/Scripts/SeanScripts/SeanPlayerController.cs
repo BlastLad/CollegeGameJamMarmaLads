@@ -60,6 +60,7 @@ public class SeanPlayerController : MonoBehaviour
 
         playerActionMap.Default.Jump.started += ctx => Jump();
         playerActionMap.Default.CarrotPlace.started += ctx => GetComponent<PlayerCheckPointControls>().PlaceCarrot();
+        playerActionMap.Default.ReloadLevel.started += ctx => ReloadLevel();
     }
 
     // Start is called before the first frame update
@@ -252,6 +253,12 @@ public class SeanPlayerController : MonoBehaviour
         + 0.1f * transform.position, footstepVolume);
         }
 
+    }
+
+
+    public void ReloadLevel()
+    {
+        GameManager.Instance.ReloadLevel();
     }
 
 }

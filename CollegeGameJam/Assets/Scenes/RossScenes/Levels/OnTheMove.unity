@@ -1041,6 +1041,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1011865216, guid: 1d28bf371b419476baa53b71b003ade6, type: 3}
+      propertyPath: nextSceneToLoad
+      value: SnowPark
+      objectReference: {fileID: 0}
     - target: {fileID: 6589900888516123129, guid: 1d28bf371b419476baa53b71b003ade6, type: 3}
       propertyPath: m_Name
       value: SceneTransition

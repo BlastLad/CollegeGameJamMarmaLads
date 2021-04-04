@@ -49,6 +49,14 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ReloadLevel"",
+                    ""type"": ""Button"",
+                    ""id"": ""95242f23-2c67-4c58-aaf0-6f5e10d195ae"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -304,6 +312,28 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
                     ""action"": ""CarrotPlace"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a4835f5c-37d9-4120-b36f-910bee05cd0c"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ReloadLevel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9880e8b8-1216-4647-880c-201004d73407"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ReloadLevel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -316,6 +346,7 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
         m_Default_Jump = m_Default.FindAction("Jump", throwIfNotFound: true);
         m_Default_MouseButtonActivate = m_Default.FindAction("MouseButtonActivate", throwIfNotFound: true);
         m_Default_CarrotPlace = m_Default.FindAction("CarrotPlace", throwIfNotFound: true);
+        m_Default_ReloadLevel = m_Default.FindAction("ReloadLevel", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -369,6 +400,7 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
     private readonly InputAction m_Default_Jump;
     private readonly InputAction m_Default_MouseButtonActivate;
     private readonly InputAction m_Default_CarrotPlace;
+    private readonly InputAction m_Default_ReloadLevel;
     public struct DefaultActions
     {
         private @PlayerActionMap m_Wrapper;
@@ -377,6 +409,7 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_Default_Jump;
         public InputAction @MouseButtonActivate => m_Wrapper.m_Default_MouseButtonActivate;
         public InputAction @CarrotPlace => m_Wrapper.m_Default_CarrotPlace;
+        public InputAction @ReloadLevel => m_Wrapper.m_Default_ReloadLevel;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -398,6 +431,9 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
                 @CarrotPlace.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnCarrotPlace;
                 @CarrotPlace.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnCarrotPlace;
                 @CarrotPlace.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnCarrotPlace;
+                @ReloadLevel.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnReloadLevel;
+                @ReloadLevel.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnReloadLevel;
+                @ReloadLevel.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnReloadLevel;
             }
             m_Wrapper.m_DefaultActionsCallbackInterface = instance;
             if (instance != null)
@@ -414,6 +450,9 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
                 @CarrotPlace.started += instance.OnCarrotPlace;
                 @CarrotPlace.performed += instance.OnCarrotPlace;
                 @CarrotPlace.canceled += instance.OnCarrotPlace;
+                @ReloadLevel.started += instance.OnReloadLevel;
+                @ReloadLevel.performed += instance.OnReloadLevel;
+                @ReloadLevel.canceled += instance.OnReloadLevel;
             }
         }
     }
@@ -424,5 +463,6 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnMouseButtonActivate(InputAction.CallbackContext context);
         void OnCarrotPlace(InputAction.CallbackContext context);
+        void OnReloadLevel(InputAction.CallbackContext context);
     }
 }

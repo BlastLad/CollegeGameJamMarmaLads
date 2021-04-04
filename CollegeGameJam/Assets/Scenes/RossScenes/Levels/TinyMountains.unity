@@ -7014,7 +7014,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369186513}
-  m_LocalRotation: {x: -0.19579457, y: -0.22090465, z: 0.1175371, w: 0.9481828}
+  m_LocalRotation: {x: -0.19579457, y: -0.22090477, z: 0.11753713, w: 0.9481829}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -12508,7 +12508,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684425522}
-  m_LocalRotation: {x: -0.13368353, y: -0.12654692, z: 0.03802243, w: 0.9821756}
+  m_LocalRotation: {x: -0.13368353, y: -0.12654693, z: 0.03802243, w: 0.98217565}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -33430,6 +33430,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1011865216, guid: 1d28bf371b419476baa53b71b003ade6, type: 3}
+      propertyPath: nextSceneToLoad
+      value: TargetPractice
+      objectReference: {fileID: 0}
     - target: {fileID: 6589900888516123129, guid: 1d28bf371b419476baa53b71b003ade6, type: 3}
       propertyPath: m_Name
       value: SceneTransition

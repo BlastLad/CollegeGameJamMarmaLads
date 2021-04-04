@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,7 +25,9 @@ public class GameManager : MonoBehaviour
     float loopStart;
     [SerializeField]
     float loopEnd;
-    
+
+    [SerializeField]
+    int buildNum = 0;
     
     // Start is called before the first frame update
     void Awake()
@@ -105,5 +108,12 @@ public class GameManager : MonoBehaviour
         mainCameraAudio.Play();
         mainCameraAudio.SetScheduledEndTime(AudioSettings.dspTime + (toSeconds - fromSeconds));
 
+    }
+
+
+    public void ReloadLevel()
+    {
+
+        SceneManager.LoadScene(buildNum);
     }
 }
