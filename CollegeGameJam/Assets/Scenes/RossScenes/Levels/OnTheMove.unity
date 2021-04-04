@@ -359,6 +359,10 @@ PrefabInstance:
       propertyPath: mainCameraAudio
       value: 
       objectReference: {fileID: 930614925}
+    - target: {fileID: 178213914, guid: 20d22a71915661e4d8ec3ac4ef0304a9, type: 3}
+      propertyPath: buildNum
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 10213426498277900, guid: 20d22a71915661e4d8ec3ac4ef0304a9, type: 3}
       propertyPath: carrotText
       value: 

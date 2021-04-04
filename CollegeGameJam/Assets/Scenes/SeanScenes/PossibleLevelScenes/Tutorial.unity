@@ -1429,6 +1429,10 @@ PrefabInstance:
       propertyPath: loopEnd
       value: 95.094
       objectReference: {fileID: 0}
+    - target: {fileID: 178213914, guid: 20d22a71915661e4d8ec3ac4ef0304a9, type: 3}
+      propertyPath: buildNum
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 10213426498277900, guid: 20d22a71915661e4d8ec3ac4ef0304a9, type: 3}
       propertyPath: carrotText
       value: 
@@ -14878,7 +14882,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571113648}
-  m_LocalRotation: {x: 0.13553643, y: 0.1674257, z: -0.046194144, w: 0.9754305}
+  m_LocalRotation: {x: 0.13553643, y: 0.16742574, z: -0.046194162, w: 0.9754305}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -14957,7 +14961,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591415013}
-  m_LocalRotation: {x: -0.018691195, y: -0.6361532, z: 0.27087373, w: 0.72220993}
+  m_LocalRotation: {x: -0.018691212, y: -0.6361533, z: 0.27087373, w: 0.72220993}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
