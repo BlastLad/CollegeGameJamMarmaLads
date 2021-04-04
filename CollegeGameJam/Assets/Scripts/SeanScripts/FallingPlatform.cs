@@ -28,6 +28,10 @@ public class FallingPlatform : MonoBehaviour
     AudioClip fallingBlockPrep;
     [SerializeField]
     AudioClip fallingBlockFall;
+    [SerializeField]
+    float fallingBlockVolume;
+    [SerializeField]
+    float fallingBlockPrepVolume;
 
     // Start is called before the first frame update
     void Start()
@@ -79,7 +83,7 @@ public class FallingPlatform : MonoBehaviour
 
         //sound effect???
         //Change model????
-        fallingAudioSource.PlayOneShot(fallingBlockPrep);
+        fallingAudioSource.PlayOneShot(fallingBlockPrep, fallingBlockPrepVolume);
 
         yield return new WaitForSeconds(timeToWait);
 
@@ -95,7 +99,7 @@ public class FallingPlatform : MonoBehaviour
 
         hasFallen = true;
 
-        fallingAudioSource.PlayOneShot(fallingBlockFall, 0.4f);
+        //fallingAudioSource.PlayOneShot(fallingBlockFall, fallingBlockVolume);
 
     }
 }

@@ -1064,6 +1064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalSFX: {fileID: 8300000, guid: 9172758d2564d4a85985d134f1ca2872, type: 3}
+  goalSFXVolume: 3
 --- !u!136 &7278531161809092393
 CapsuleCollider:
   m_ObjectHideFlags: 0

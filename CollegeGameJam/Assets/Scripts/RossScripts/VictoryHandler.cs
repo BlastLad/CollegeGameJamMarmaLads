@@ -11,6 +11,8 @@ public class VictoryHandler : MonoBehaviour
 
     [SerializeField]
     AudioClip goalSFX;
+    [SerializeField]
+    float goalSFXVolume=3;
 
     private void Start()
     {
@@ -29,7 +31,7 @@ public class VictoryHandler : MonoBehaviour
     {
         GetComponent<EnemyAI>().canFireProjectiles = false;
         AudioSource.PlayClipAtPoint(goalSFX, 0.9f * Camera.main.transform.position
-            + 0.1f * transform.position, 5);
+            + 0.1f * transform.position, goalSFXVolume);
         float levelCompleteBuffer = 1.5f;       // Must be enough time to play animations and SFX
 
         // ADD --- Play victory animations and sound effects
