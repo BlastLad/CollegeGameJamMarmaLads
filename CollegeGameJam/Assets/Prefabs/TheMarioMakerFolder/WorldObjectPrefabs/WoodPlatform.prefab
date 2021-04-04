@@ -82,6 +82,8 @@ MonoBehaviour:
   triggerCollider: {fileID: 7180293484414145275}
   fallingBlockPrep: {fileID: 8300000, guid: 41120d880987c4ddb91c0eab5b6cb819, type: 3}
   fallingBlockFall: {fileID: 8300000, guid: 9bad18d8de8264e24be73c0460053ac8, type: 3}
+  fallingBlockVolume: 0
+  fallingBlockPrepVolume: 0
 --- !u!65 &7180293484414145275
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -282,7 +284,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 52710385997338485, guid: eb61026fbb9851d44b557b67016f988a, type: 3}
+  - {fileID: 2100000, guid: 193615a5eda08b848997467a5c286c3c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
