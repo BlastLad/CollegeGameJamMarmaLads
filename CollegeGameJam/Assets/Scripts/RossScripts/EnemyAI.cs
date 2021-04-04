@@ -50,6 +50,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     float throwSFXVolume = 10f;
 
+
     private void Start()
     {
         targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -80,8 +81,7 @@ public class EnemyAI : MonoBehaviour
 
             GameObject newProjectile = Instantiate(projectile, firingPoint.position, Quaternion.identity) as GameObject;
 
-            AudioSource.PlayClipAtPoint(throwSFX, 0.9f * Camera.main.transform.position
-                + 0.1f * transform.position, throwSFXVolume);   //This code makes the sound volume more adjustable
+            AudioSource.PlayClipAtPoint(throwSFX, Camera.main.transform.position, throwSFXVolume);   //This code makes the sound volume more adjustable
 
             float targetDistance = Vector3.Distance(newProjectile.transform.position, targetTransform.position); // Calculate distance to player
             float projectileVelocity = targetDistance / (Mathf.Sin(2 * firingAngle * Mathf.Deg2Rad) / gravity); // Calculate velocity needed to hit target
@@ -104,8 +104,8 @@ public class EnemyAI : MonoBehaviour
                 yield return null;
             }
             StartCoroutine(newProjectile.GetComponent<Projectile>().DestroyProjectile());
-            isFlying = false;
             yield return new WaitForSeconds(throwDelay);
+            isFlying = false;
         }
     }
 

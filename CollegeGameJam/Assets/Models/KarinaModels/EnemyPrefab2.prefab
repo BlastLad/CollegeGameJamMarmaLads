@@ -1050,7 +1050,7 @@ MonoBehaviour:
   crosshairYOffset: 4
   canFireProjectiles: 1
   throwSFX: {fileID: 8300000, guid: b3cedc30c289547ebabe2e4c3370726d, type: 3}
-  throwSFXVolume: 0.5
+  throwSFXVolume: 240
 --- !u!114 &5732823920330930292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1064,7 +1064,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalSFX: {fileID: 8300000, guid: 9172758d2564d4a85985d134f1ca2872, type: 3}
-  goalSFXVolume: 3
 --- !u!136 &7278531161809092393
 CapsuleCollider:
   m_ObjectHideFlags: 0
