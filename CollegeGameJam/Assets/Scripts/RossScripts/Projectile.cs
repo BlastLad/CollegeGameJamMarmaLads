@@ -17,6 +17,13 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     float groundImpactVolume = 1f;
 
+    bool isExploded;
+
+    private void Start()
+    {
+        isExploded = false;
+    }
+
 
     private void OnCollisionEnter(Collision other)
     {
@@ -35,10 +42,11 @@ public class Projectile : MonoBehaviour
 
         else
         {
+            StartCoroutine(DestroyProjectile()); // this disables the projectile's trigger and then destroys
             AudioSource.PlayClipAtPoint(groundImpactSFX, 0.9f * Camera.main.transform.position
                 + 0.1f * transform.position, groundImpactVolume);
-            StartCoroutine(DestroyProjectile()); // this disables the projectile's trigger and then destroys
         }
+        Debug.Log("I hit" + other.gameObject.name);
     }
 
 
@@ -70,6 +78,11 @@ public class Projectile : MonoBehaviour
     {
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<SphereCollider>().enabled = false;
-        projectileCollisionVFX.Play();
+        if(!isExploded)
+        {
+            projectileCollisionVFX.Play();
+            isExploded = true;
+        }
+        Debug.Log("HIT");
     }
 }

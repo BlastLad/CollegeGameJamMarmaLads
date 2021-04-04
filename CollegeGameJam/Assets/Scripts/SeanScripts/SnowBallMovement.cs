@@ -47,6 +47,8 @@ public class SnowBallMovement : MonoBehaviour
     [SerializeField]
     AudioClip endPushSfx;
 
+    Animator playerAnim;
+
 
 
     private void Awake()
@@ -56,7 +58,7 @@ public class SnowBallMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerAnim = FindObjectOfType<SeanPlayerController>().GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -125,7 +127,7 @@ public class SnowBallMovement : MonoBehaviour
         {
 
             StopAllCoroutines();
-
+            playerAnim.SetBool("isPushing", false);
         }
     }
 
@@ -135,7 +137,7 @@ public class SnowBallMovement : MonoBehaviour
         yield return new WaitForSeconds(timeToWait);
         DeterminePushDirection(other);
         snowBallAudio.PlayOneShot(endPushSfx);
-
+        playerAnim.SetBool("isPushing", true);
 
     }
 
