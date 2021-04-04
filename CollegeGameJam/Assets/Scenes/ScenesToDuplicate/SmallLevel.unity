@@ -6340,18 +6340,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 176676127, guid: 9a1a8f388cef8490eaf57e98414343d3, type: 3}
-      propertyPath: m_CullingMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 176676127, guid: 9a1a8f388cef8490eaf57e98414343d3, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1452417014521382507, guid: 9a1a8f388cef8490eaf57e98414343d3, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4812141560411593745, guid: 9a1a8f388cef8490eaf57e98414343d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.536411
@@ -6400,8 +6388,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyPrefab
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 176676127, guid: 9a1a8f388cef8490eaf57e98414343d3, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a1a8f388cef8490eaf57e98414343d3, type: 3}
 --- !u!43 &1165466914
 Mesh:
