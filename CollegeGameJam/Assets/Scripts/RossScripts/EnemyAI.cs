@@ -112,8 +112,8 @@ public class EnemyAI : MonoBehaviour
     private void RotateToTarget()
     {
         Vector3 lookPoint = new Vector3
-                    (targetTransform.position.x, transform.position.y, targetTransform.position.z);
-        transform.LookAt(lookPoint);
+                    (targetTransform.position.x, transform.parent.transform.position.y, targetTransform.position.z);
+        transform.parent.transform.LookAt(lookPoint);
     }
 
     private void ShowCrosshairs()
