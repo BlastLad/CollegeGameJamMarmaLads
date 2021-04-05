@@ -88,7 +88,7 @@ public class GenericActivationScript : MonoBehaviour
     {
         yield return new WaitForSeconds(spintime);
         isRotating = false;
-        objectToRotate.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        objectToRotate.transform.localRotation = Quaternion.Euler(0, 180, 0);
     }
 
 
