@@ -11,7 +11,7 @@ public class VictoryHandler : MonoBehaviour
 
     [SerializeField]
     AudioClip goalSFX;
-    float goalSFXVolume=2;
+    float goalSFXVolume=1;
 
     private void Start()
     {
