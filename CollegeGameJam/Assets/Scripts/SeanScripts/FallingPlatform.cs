@@ -32,12 +32,15 @@ public class FallingPlatform : MonoBehaviour
     float fallingBlockVolume;
     [SerializeField]
     float fallingBlockPrepVolume;
+    [SerializeField]
+    Vector3 startingPos;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         fallingAudioSource = GetComponent<AudioSource>();
+        startingPos = transform.parent.position;
     }
 
     // Update is called once per frame
@@ -98,8 +101,21 @@ public class FallingPlatform : MonoBehaviour
         triggerCollider.enabled = false;
 
         hasFallen = true;
+        StartCoroutine(reSpawnFallingPlatform(4f));
 
         //fallingAudioSource.PlayOneShot(fallingBlockFall, fallingBlockVolume);
 
+    }
+
+
+
+    private IEnumerator reSpawnFallingPlatform(float timeToWait)
+    {
+        yield return new WaitForSeconds(timeToWait);
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        hasFallen = false;
+        durability = 1;
+        triggerCollider.enabled = true;
+        transform.position = startingPos;
     }
 }
