@@ -115,9 +115,7 @@ public class SnowBallMovement : MonoBehaviour
             }
          
         }
-        else if (other.gameObject.CompareTag(ProjectileString)) {
-            DestroySnowBall();
-        }
+    
 
     }
 
