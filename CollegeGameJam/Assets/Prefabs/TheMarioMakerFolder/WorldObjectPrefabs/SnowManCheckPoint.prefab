@@ -715,6 +715,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[5]
       value: 
       objectReference: {fileID: 2100000, guid: a18a329f6fbe738448c2ca6767631f29, type: 2}
+    - target: {fileID: -6945867853414281351, guid: 0c9d6e705e679f74989930bea10a88b7, type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: df16f3551a9d193449bf76c2b08544b4, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c9d6e705e679f74989930bea10a88b7, type: 3}
       propertyPath: m_Name
       value: Snowman
